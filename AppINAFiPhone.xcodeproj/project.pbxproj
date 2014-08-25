@@ -71,6 +71,7 @@
 		03C57DFB19AB3F0D00978837 /* ViewControllerTre.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C57DC619AB3F0D00978837 /* ViewControllerTre.xib */; };
 		03C57DFC19AB3F0D00978837 /* DetailEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57DC819AB3F0D00978837 /* DetailEventsViewController.m */; };
 		03C57E0119AB422100978837 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0019AB422100978837 /* Assets */; };
+		03C57E0319AB452500978837 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0219AB452500978837 /* LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,7 @@
 		03C57DC719AB3F0D00978837 /* DetailEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailEventsViewController.h; sourceTree = "<group>"; };
 		03C57DC819AB3F0D00978837 /* DetailEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailEventsViewController.m; sourceTree = "<group>"; };
 		03C57E0019AB422100978837 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		03C57E0219AB452500978837 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		03C57D4519AB3DAD00978837 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				03C57E0219AB452500978837 /* LICENSE.txt */,
 				03C57D4619AB3DAD00978837 /* AppINAFiPhone-Info.plist */,
 				03C57D4719AB3DAD00978837 /* InfoPlist.strings */,
 				03C57D4A19AB3DAD00978837 /* main.m */,
@@ -511,6 +514,7 @@
 				03C57DE219AB3F0D00978837 /* ViewControllerAnnotation.xib in Resources */,
 				03C57DF019AB3F0D00978837 /* DetailMapViewController.xib in Resources */,
 				03C57DEC19AB3F0D00978837 /* ViewControllerInfo.xib in Resources */,
+				03C57E0319AB452500978837 /* LICENSE.txt in Resources */,
 				03C57D4919AB3DAD00978837 /* InfoPlist.strings in Resources */,
 				03C57E0119AB422100978837 /* Assets in Resources */,
 				03C57DF919AB3F0D00978837 /* DetailNewsViewController.xib in Resources */,
@@ -773,6 +777,7 @@
 				03C57D6F19AB3DAD00978837 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03C57D7019AB3DAD00978837 /* Build configuration list for PBXNativeTarget "AppINAFiPhoneTests" */ = {
 			isa = XCConfigurationList;
@@ -781,6 +786,7 @@
 				03C57D7219AB3DAD00978837 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

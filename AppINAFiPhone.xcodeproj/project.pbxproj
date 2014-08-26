@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42619AC8F1B00E142C7 /* ParserImages.m */; };
+		039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */; };
 		03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D3E19AB3DAD00978837 /* Foundation.framework */; };
 		03C57D4119AB3DAD00978837 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D4019AB3DAD00978837 /* CoreGraphics.framework */; };
 		03C57D4319AB3DAD00978837 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D4219AB3DAD00978837 /* UIKit.framework */; };
@@ -85,6 +87,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		039CF42519AC8F1B00E142C7 /* ParserImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserImages.h; sourceTree = "<group>"; };
+		039CF42619AC8F1B00E142C7 /* ParserImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserImages.m; sourceTree = "<group>"; };
+		039CF42719AC8F1B00E142C7 /* ParserThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserThumbnail.h; sourceTree = "<group>"; };
+		039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserThumbnail.m; sourceTree = "<group>"; };
 		03C57D3B19AB3DAD00978837 /* AppINAFiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppINAFiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C57D3E19AB3DAD00978837 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03C57D4019AB3DAD00978837 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -307,6 +313,10 @@
 		03C57D7419AB3EBA00978837 /* due */ = {
 			isa = PBXGroup;
 			children = (
+				039CF42519AC8F1B00E142C7 /* ParserImages.h */,
+				039CF42619AC8F1B00E142C7 /* ParserImages.m */,
+				039CF42719AC8F1B00E142C7 /* ParserThumbnail.h */,
+				039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */,
 				03C57DAA19AB3F0D00978837 /* ViewControllerImagineGrande.h */,
 				03C57DAB19AB3F0D00978837 /* ViewControllerImagineGrande.m */,
 				03C57DAC19AB3F0D00978837 /* ViewControllerImagineGrande.xib */,
@@ -574,7 +584,9 @@
 				03C57DF319AB3F0D00978837 /* InternetNewsViewController.m in Sources */,
 				03C57D4B19AB3DAD00978837 /* main.m in Sources */,
 				03C57DF119AB3F0D00978837 /* ViewControllerUno.m in Sources */,
+				039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */,
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,
+				039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */,
 				03C57DE019AB3F0D00978837 /* News.m in Sources */,
 				03C57DD719AB3F0D00978837 /* DetailJobsViewController.m in Sources */,
 			);

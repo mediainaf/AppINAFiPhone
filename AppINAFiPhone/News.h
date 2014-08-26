@@ -20,6 +20,7 @@
 
 @property (nonatomic,strong) NSString * thumbnail ;
 @property (nonatomic,strong) NSMutableArray * images;
+@property (nonatomic,strong) NSMutableArray * videos;
 
 @end
 

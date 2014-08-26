@@ -34,7 +34,7 @@
         NSString* spazio = @"";
         NSURL   *imageToShare = [NSURL URLWithString:self.news.link];
         
-        NSArray *postItems = [NSArray arrayWithObjects:titolo,spazio,imageToShare, nil];
+        NSArray *postItems = [NSArray arrayWithObjects:titolo,spazio,self.news.link,self.immagine.image, nil];
         
         UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                 initWithActivityItems:postItems
@@ -53,105 +53,166 @@
         
         NSLog(@"Apri link");
     }
+    if(buttonIndex == 2)
+    {
+        NSLog(@"immagine grande");
+        
+        ViewControllerImagineGrande * viewControllerImmagineGrande = [[ViewControllerImagineGrande alloc]initWithNibName:@"ViewControllerImagineGrande" bundle:nil];
+        
+        viewControllerImmagineGrande.imageUrl= [self.news.images objectAtIndex:0];
+        
+        [self.navigationController pushViewController:viewControllerImmagineGrande animated:YES];
+
+    }
 }
 -(void) OpenLink
 {
-    UIActionSheet * action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share",@"Open link", nil];
+    UIActionSheet * action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Share",@"Open link",@"Open Image", nil];
     [action showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
     
     
     
 }
--(UIImage*)imageWithImage:(UIImage*)image
+
+-(void) calcolaScroll
 {
-    /*
+    CGRect rect      = self.testo.frame;
+    rect.size.height = self.testo.contentSize.height;
+    self.testo.frame   = rect;
     
-    UIGraphicsBeginImageContext( newSize );
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    NSLog( @"immagine");
-    return  newImage;
-    */
-    
-   CGImageRef  mySubimage;
-    
-    CGSize  size = image.size;
-    
-    UIImage * immagine;
-    
-    if(size.height >= size.width)
-    {
-        float w = size.width;
-        float h = w / 2.5;
-        
-        float y = size.height/2 - (h/2);
-        float x = size.width/2 - (w /2);
-        
-        CGRect  myImageArea = CGRectMake (x, y,w ,h );
-        
-        mySubimage = CGImageCreateWithImageInRect (image.CGImage, myImageArea);
-
-        
-         immagine = [UIImage imageWithCGImage:mySubimage];
-        
-    }
-    else
-    {
-
-        float h = size.height;
-        float w = h*2.5;
-        
-        float y = size.height/2 - (h/2);
-        float x = size.width/2 - (w /2);
-        
-        CGRect  myImageArea = CGRectMake (x, y,w ,h );
-        
-        mySubimage = CGImageCreateWithImageInRect (image.CGImage, myImageArea);
-        
-        
-        immagine = [UIImage imageWithCGImage:mySubimage];
-        
-    }
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.testo.frame.origin.y+self.testo.contentSize.height+50)];
     
     
-
-   
+    rect = self.data.frame;
+    rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
+    self.data.frame = rect;
     
+    rect = self.autore.frame;
+    rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
+    self.autore.frame = rect;
     
-    
-    
-    //myRect = CGRectMake(0, 0, myWidth*2, myHeight*2);
-    
-    //CGContextDrawImage(context, myRect, mySubimage);
-
-    
-    return immagine;
     
 }
-- (void)handleSingleTap:(UIGestureRecognizer *)gestureRecognizer
+
+-(void)viewDidLayoutSubviews
 {
-    NSString * urlImmGrande = [[NSString alloc]initWithFormat:@"http://marlin.iasfbo.inaf.it/AGILEApp/NEWS/big_AGILE.png"];
-    
-    
-   
-        ViewControllerImagineGrande * viewControllerImmagineGrande = [[ViewControllerImagineGrande alloc]initWithNibName:@"ViewControllerImagineGrande" bundle:nil];
-        
-        //viewControllerImmagineGrande.immagineUrl=urlImmGrande;
-        
-        [self.navigationController pushViewController:viewControllerImmagineGrande animated:YES];
+    NSLog(@"layou");
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"appear");
+    //[self performSelector:@selector(calcolaScroll) withObject:self afterDelay:0.6];
+    [self calcolaScroll];
     
 }
 
 - (void)viewDidLoad
 {
+    self.testo.scrollEnabled=YES;
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-  
     
-    [self.immagine addGestureRecognizer:singleTap];
+    
+    UIBarButtonItem * apriImmagine = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(OpenLink)];
+    
+    [self.navigationItem setRightBarButtonItem:apriImmagine animated:YES];
+    
+    self.sfindoView.image = [UIImage imageNamed:@"Assets/galileo3.jpg"];
+    //self.sfondoView.image = [UIImage imageNamed:@"Assets/galileo4.jpg"];
+    self.sfindoView.alpha = 0.6;
+    
+    self.titolo.text = self.news.title;
+    self.sommario.text = self.news.summary;
+    
+    
+    self.testo.text = self.news.content;
+    
+ 
+    self.autore.text = self.news.author;
+    self.data.text = self.news.date;
+    
+    
+    if([self.news.images count] >0 && [self.news.videos count] == 0)
+    {
+        NSLog(@"1");
+        
+        
+        [self.immagine setHidden:NO];
+        char const * s = [@"s"  UTF8String];
+        
+        dispatch_queue_t queue = dispatch_queue_create(s, 0);
+        
+        dispatch_async(queue, ^
+                       {
+                           NSString * imageUrl =  [self.news.images objectAtIndex:0] ;
+                           
+                           NSArray * elements = [ imageUrl componentsSeparatedByString:@"/"];
+                           
+                           int number = [elements count];
+                           
+                           NSString * url = [NSString stringWithFormat:@"http://app.media.inaf.it/GetMediaImage.php?sourceYear=%@&sourceMonth=%@&sourceName=%@&width=300&height=122",[elements objectAtIndex:number-3],[elements objectAtIndex:number-2],[elements objectAtIndex:number-1]];
+                           
+                           NSString *response1 = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
+                           if(!response1)
+                           {
+                               UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Internet Connection Error" message:@"Change internet settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                               [alert show];
+                           }
+                           
+                           NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+                           
+                           NSData * response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+                           
+                           self.immagine.image = nil;
+                           
+                           if(response != nil)
+                           {
+                               
+                               NSError * jsonParsingError = nil;
+                               
+                               NSDictionary * jsonElement = [NSJSONSerialization JSONObjectWithData:response options:0 error:&jsonParsingError];
+                               
+                               NSDictionary * json = [jsonElement objectForKey:@"response"];
+                               
+                               NSString * urlImage = [json objectForKey:@"urlResizedImage"];
+                               
+                               NSData * dataImmagine = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlImage]];
+                               
+                               
+                               
+                               dispatch_async(dispatch_get_main_queue(), ^
+                                              {
+                                                  NSLog(@"load image");
+                                                  
+                                                  UIImage * img = [[UIImage alloc] initWithData:dataImmagine];
+                                                  
+                                                  self.immagine.image=img;
+                                                  
+                                                  
+                                                  
+                                              });//end
+                           }
+                           
+                       });//end
+        
+        
+        
+        
+    }
+    else if([self.news.videos count] >0)
+    {
+        NSLog(@"load video");
+        [self loadVideo];
+    }
+    else
+    {
+        NSLog(@"3");
+        [self.immagine setHidden:NO];
+        self.immagine.image = [UIImage imageNamed:@"Assets/newsDefault.png"];
+        
+    }
 
+    
+    /*
     
     //self.sfindoView.image = [UIImage imageNamed:@"Assets/lbt3.jpg"];
     
@@ -205,7 +266,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     
     self.navigationItem.titleView = label;
-    label.text = self.title;
+    label.text = self.title;    */
     
     //self.immagine.image = [UIImage imageNamed:@"Assets/news2.jpg"];
     //self.immagine.contentMode= UIViewContentModeScaleAspectFit;
@@ -213,7 +274,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void) loadVideo
+{
+    
+    
+    [self.webView setHidden:NO];
+    
+    NSMutableString *html = [NSMutableString string];
+    [html appendString:@"<html>"];
+    [html appendString:@"<head>"];
+    [html appendString:@"<style type=\"text/css\">"];
+    [html appendString:@"body {"];
+    [html appendString:@"background-color: transparent;"];
+    [html appendString:@"color: white;"];
+    [html appendString:@"margin: 0;"];
+    [html appendString:@"}"];
+    [html appendString:@"</style>"];
+    [html appendString:@"</head>"];
+    [html appendString:@"<body>"];
+    [html appendFormat:@"<iframe id=\"ytplayer\" type=\"text/html\" width=\"%0.0f\" height=\"%0.0f\" src=\"%@\" frameborder=\"0\"/>", self.webView.frame.size.width, self.webView.frame.size.height, [self.news.videos objectAtIndex:0]];
+    [html appendString:@"</body>"];
+    [html appendString:@"</html>"];
+    
+    //[self.indicator stopAnimating];
+    
+    [self.webView loadHTMLString:html baseURL:nil];
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

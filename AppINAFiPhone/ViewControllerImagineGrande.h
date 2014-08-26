@@ -9,6 +9,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerImagineGrande : UIViewController
+@interface ViewControllerImagineGrande : UIViewController <NSURLConnectionDataDelegate,NSURLConnectionDelegate,UIScrollViewDelegate>
+
+@property (nonatomic,strong) NSString * imageUrl;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollerView;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
 @end

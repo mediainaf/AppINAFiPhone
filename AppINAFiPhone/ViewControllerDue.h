@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewControllerDue : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate>
+@interface ViewControllerDue : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UIActionSheetDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *background;

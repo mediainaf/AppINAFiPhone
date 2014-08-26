@@ -50,7 +50,7 @@
     
     [self.indicator startAnimating];
     
-    NSURL * urlNews = [NSURL URLWithString:@"http://www.media.inaf.it/2014/02/17/media-inaf-si-veste-di-nuovo/"];
+    NSURL * urlNews = [NSURL URLWithString:self.link];
     
     NSURLRequest * newsUrlRequest = [NSURLRequest requestWithURL:urlNews];
 

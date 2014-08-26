@@ -123,6 +123,9 @@
         NSMutableArray * videos = [[NSMutableArray alloc] init];
         videos = [imagesAndVideoArray objectAtIndex:1];
 
+         NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
+        
+        
         News * n = [[News alloc] init];
         // manca autore data link
         n.title = title;
@@ -287,6 +290,8 @@ finish:
 -(void) loadData : (NSString *) url
 {
     
+   
+    
     NSString *response = [NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil];
     if(!response)
     {
@@ -373,10 +378,104 @@ finish:
 }
 -(CGFloat) pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
-    return 400;
+    return 300;
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"dismis");
+     popAperto = 0;
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        NSLog(@"uno");
+       
+    }
+    if(buttonIndex == 1)
+    {
+        
+        NSLog(@"due");
+
+        page=1;
+        self.loadingView.hidden=NO;
+        
+        double delayInSeconds = 0.2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            if([segmentedControl selectedSegmentIndex] == 0)
+            {
+                if(pickerRowSelected == 0)
+                    [self loadData:@"http://www.media.inaf.it/feed/"];
+                else
+                    [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[institutesTag objectAtIndex:pickerRowSelected]]];
+            }
+            if([segmentedControl selectedSegmentIndex] == 1)
+            {
+                if(pickerRowSelected == 0)
+                    [self loadData:@"http://www.media.inaf.it/feed/"];
+                else
+                    [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[telescopesTag objectAtIndex:pickerRowSelected]]];
+            }
+            if([segmentedControl selectedSegmentIndex] == 2)
+            {
+                if(pickerRowSelected == 0)
+                    [self loadData:@"http://www.media.inaf.it/feed/"];
+                else
+                    [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[satellitesTag objectAtIndex:pickerRowSelected]]];
+            }
+            
+            
+        });
+    }
+    
 }
 -(void) apriFiltri
 {
+    if(popAperto == 0)
+    {
+        popAperto = 1;
+        
+        UIActionSheet*  actionSheet =[[UIActionSheet alloc] initWithTitle:@"Seleziona filtro" delegate:self cancelButtonTitle:@"Filtra" destructiveButtonTitle:@"Annulla" otherButtonTitles: nil ];
+        
+        segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
+        
+        segmentedControl.frame = CGRectMake(10, 145, 300, 30);
+        
+        [actionSheet addSubview:segmentedControl];
+
+        
+        pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,154, 0, 0)];
+        
+        pickerView.delegate=self;
+        pickerView.showsSelectionIndicator=YES;
+        
+        UIDevice *device = [UIDevice currentDevice];
+        
+        
+        if([device.systemVersion hasPrefix:@"6"])
+        {
+            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+        }
+        else
+        {
+            segmentedControl.tintColor = [UIColor blackColor];
+        }
+        
+        
+        
+        [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
+        segmentedControl.selectedSegmentIndex = segmentSelected;
+
+        
+        [actionSheet addSubview:pickerView];
+        
+        [actionSheet showFromTabBar:self.tabBarController.tabBar ];
+        
+        [actionSheet setBounds:CGRectMake(0, 0, 320, 600)];
+    }
+    
     /*
     if(!popOverController.popoverVisible)
     {
@@ -751,17 +850,18 @@ finish:
         [bottone setTintColor:[UIColor blackColor]];
     }
     
-    [bottone setFrame:CGRectMake(10, 2, 100, 30)];
+    [bottone setFrame:CGRectMake(0, 2, 80, 30)];
     
     UIBarButtonItem * buttonBar = [[UIBarButtonItem alloc] initWithCustomView:bottone];
     
     self.navigationItem.leftBarButtonItem=buttonBar;
     
-
+    self.loadingView.image = [UIImage imageNamed:@"Assets/loadingNews.png"];
     self.title = @"News";
     
     self.background.image = [UIImage imageNamed:@"Assets/galileo3.jpg"];
     self.background.alpha = 0.6;
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -825,7 +925,7 @@ finish:
                     
                     int number = [elements count];
                     
-                    NSString * url = [NSString stringWithFormat:@"http://app.media.inaf.it/GetMediaImage.php?sourceYear=%@&sourceMonth=%@&sourceName=%@&width=354&height=201",[elements objectAtIndex:number-3],[elements objectAtIndex:number-2],[elements objectAtIndex:number-1]];
+                    NSString * url = [NSString stringWithFormat:@"http://app.media.inaf.it/GetMediaImage.php?sourceYear=%@&sourceMonth=%@&sourceName=%@&width=300&height=149",[elements objectAtIndex:number-3],[elements objectAtIndex:number-2],[elements objectAtIndex:number-1]];
                     
                     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
                     
@@ -939,6 +1039,12 @@ finish:
     NSString *identifier = [NSString stringWithFormat:@"Cell%ld" ,
                             (long)indexPath.row];
     
+   
+    DetailNewsViewController * d = [[DetailNewsViewController alloc] initWithNibName:@"DetailNewsViewController" bundle:nil];
+    
+    d.news = [news objectAtIndex:indexPath.row];
+    
+    [self.navigationController pushViewController:d animated:YES];
     
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }

@@ -21,6 +21,7 @@
 @property (strong,nonatomic) UIImage * thumbnail;
 @property (strong, nonatomic) IBOutlet UIImageView *sfondoView;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 

@@ -21,8 +21,10 @@
     NSMutableDictionary *cachedImages;
     NSMutableDictionary *tableImages;
 
-   
+    UIRefreshControl *refreshControl;
     
+
+    int page;
    
 }
 
@@ -52,7 +54,17 @@
 }
 -(void) loadData
 {
-    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/inaftv/uploads?alt=json"]];
+    [self.loadingView setHidden:YES];
+    
+    
+    NSString *response1 = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/inaftv/uploads?alt=json&max-results=50"] encoding:NSUTF8StringEncoding error:nil];
+    if(!response1)
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Internet Connection Error" message:@"Change internet settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/inaftv/uploads?alt=json&max-results=50"]];
     
     NSData * response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     
@@ -110,39 +122,77 @@
         NSString * dateFormatted = [date valueForKey:@"$t"];
         NSLog(@"data %@",dateFormatted);
         NSArray * elementiData  = [dateFormatted componentsSeparatedByString:@"T"];
-       /*
-        NSString * day = [elementiData objectAtIndex:1];
-        NSString * DM = [day stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:2]]];
-        NSString * DMY = [DM stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:3]]];
-        */
+        /*
+         NSString * day = [elementiData objectAtIndex:1];
+         NSString * DM = [day stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:2]]];
+         NSString * DMY = [DM stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:3]]];
+         */
         v.data = [elementiData objectAtIndex:0];
-
+        
         NSLog(@"data %@",v.data);
-
+        
         
         [video addObject:v];
     }
     
     [self.collectionView reloadData];
     
+    [self.loadingView setHidden:YES];
+    
+    [refreshControl endRefreshing];
+    
+    
 
     
+}
+-(void) reloadData : (id) selector
+{
+    
+    [self.loadingView setHidden:NO];
+    
+    load =1;
+    page = 1;
+    
+    
+    [self loadData];
+    
+    
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+       //[self.collectionView setContentOffset:CGPointZero animated:YES];
+    
+    [refreshControl removeFromSuperview];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh)
+             forControlEvents:UIControlEventValueChanged];
+    [self.collectionView addSubview:refreshControl];
+    
+    [refreshControl setTintColor:[UIColor whiteColor]];
+    
+    self.collectionView.alwaysBounceVertical = YES;
+    
+}
+-(void) refresh
+{
+    [self performSelector:@selector(reloadData:) withObject:nil afterDelay:0.5];
 }
 - (void)viewDidLoad
 {
     
+    [self.collectionView setContentOffset:CGPointMake(0, -refreshControl.frame.size.height) animated:YES];
+    [refreshControl beginRefreshing];
     
     
-    UIBarButtonItem * refresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(loadData) ];
+    self.loadingView.image = [UIImage imageNamed:@"Assets/loadingNews.png"];
     
-    self.navigationItem.rightBarButtonItem= refresh ;
-    
-
     
     cachedImages = [[NSMutableDictionary alloc] init];
 
     
-        [self.collectionView registerClass:[VideoCell class] forCellWithReuseIdentifier:@"cvCell"];
+    [self.collectionView registerClass:[VideoCell class] forCellWithReuseIdentifier:@"cvCell"];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(300, 345)];
@@ -155,8 +205,9 @@
     
     
     self.title=@"Video";
-    self.sfondoView.image= [UIImage imageNamed:@"Assets/galileo2.jpg"];
+    
     self.sfondoView.image=[UIImage imageNamed:@"Assets/cresisola2.jpg"];
+    self.sfondoView.alpha = 0.6;
 
     
     
@@ -167,10 +218,7 @@
        // [self.tableView setFrame:CGRectMake(0, 44, 320, 387)];
     // if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
     //   self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    
-    
-    self.sfondoView.image = [UIImage imageNamed:@"Assets/galileo3.jpg"];
+
     self.sfondoView.alpha = 0.7;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

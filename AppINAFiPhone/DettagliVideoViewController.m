@@ -24,9 +24,35 @@
     }
     return self;
 }
+-(CGSize) getContentSize:(UITextView*) myTextView{
+    return [myTextView sizeThatFits:CGSizeMake(myTextView.frame.size.width, FLT_MAX)];
+}
+-(void) calcolaScroll
+{
+    
+    CGRect rect      = self.description.frame;
+    rect.size.height = [self getContentSize:self.description].height;
+    self.description.frame   = rect;
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.description.frame.origin.y+self.description.frame.size.height+50)];
+    
+    
+    rect = self.date.frame;
+    rect.origin.y = self.description.frame.origin.y+20+self.description.frame.size.height ;
+    self.date.frame = rect;
+    
+    rect = self.numberOfView.frame;
+    
+    rect.origin.y = self.description.frame.origin.y+20+self.description.frame.size.height ;
+    self.numberOfView.frame = rect;
+    
+
+    }
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
+     [self calcolaScroll];
     
     NSMutableString *html = [NSMutableString string];
     [html appendString:@"<html>"];
@@ -55,13 +81,15 @@
     
     [self.indicator startAnimating];
     
-    self.sfondoView.image=[UIImage imageNamed:@"Assets/lbt5.jpg"];
+    self.sfondoView.image=[UIImage imageNamed:@"Assets/cresisola2.jpg"];
     self.sfondoView.alpha = 0.6;
+    
+
     
     Video * v = [[Video alloc]init];
     v=self.video;
     
-       self.titolo.text= v.title;
+    self.titolo.text= v.title;
     self.description.text = v.summary;
     [self.description setFont:[UIFont fontWithName:@"Helvetica" size:16.0f]];
     self.date.text = v.data;

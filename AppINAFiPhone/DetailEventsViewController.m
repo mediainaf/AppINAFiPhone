@@ -95,26 +95,7 @@
     rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
     self.autore.frame = rect;
     
-    /*
-     CGRect rect = self.testo.frame;
-     rect.size.width = self.testo.contentSize.width + self.testo.contentInset.right + self.testo.contentInset.left;
-     rect.size.height = self.testo.contentSize.height + self.testo.contentInset.top + self.testo.contentInset.bottom;
-     self.testo.frame = rect;
-     
-     
-     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.testo.frame.origin.y+self.testo.contentSize.height+50)];
-     
-     
-     rect = self.data.frame;
-     rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
-     self.data.frame = rect;
-     
-     rect = self.autore.frame;
-     rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
-     self.autore.frame = rect;
-     
-     
-     */
+
     NSLog(@"calcola %f",self.testo.contentSize.height);
 }
 

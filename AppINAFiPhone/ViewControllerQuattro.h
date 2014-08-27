@@ -18,5 +18,6 @@
 
 
 
+@property (strong, nonatomic) IBOutlet UIImageView *loadingView;
 
 @end

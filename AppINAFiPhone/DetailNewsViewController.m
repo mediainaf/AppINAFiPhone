@@ -101,8 +101,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"appear");
-    //[self performSelector:@selector(calcolaScroll) withObject:self afterDelay:0.6];
-    [self calcolaScroll];
+   // [self performSelector:@selector(calcolaScroll) withObject:self afterDelay:0.4];
+      [self performSelector:@selector(calcolaScroll) withObject:self afterDelay:2.0];
+   // [self calcolaScroll];
     
 }
 

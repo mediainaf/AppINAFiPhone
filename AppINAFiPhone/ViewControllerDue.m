@@ -612,6 +612,85 @@ finish:
     
     
 }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    
+    if ([scrollView contentOffset].y >= self.collectionView.contentSize.height-self.view.frame.size.height){
+        
+        
+        NSLog(@"reload");
+        
+        
+        [self.loadingView setHidden:NO];
+        
+        [self performSelector:@selector(changePage) withObject:nil afterDelay:0.5];
+        
+        
+        
+    }
+    
+}
+-(void) changePage
+{
+    page++;
+    
+    NSLog(@"page %d",page);
+    title = [[NSMutableString alloc] init];
+    author = [[NSMutableString alloc] init];
+    date = [[NSMutableString alloc] init];
+    summary = [[NSMutableString alloc] init];
+    content = [[NSMutableString alloc] init];
+    link = [[NSMutableString alloc] init];
+    
+    if([segmentedControl selectedSegmentIndex] == 0)
+    {
+        if(pickerRowSelected == 0)
+            
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://www.media.inaf.it/feed/?paged=%d",page]]];
+        
+        else
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/?paged=%d",[institutesTag objectAtIndex:pickerRowSelected],page]]];
+        
+        
+    }
+    if([segmentedControl selectedSegmentIndex] == 1)
+    {
+        if(pickerRowSelected == 0)
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://www.media.inaf.it/feed/?paged=%d",page]]];
+        
+        
+        else
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/?paged=%d",[telescopesTag objectAtIndex:pickerRowSelected],page]]];
+        
+        
+    }
+    if([segmentedControl selectedSegmentIndex] == 2)
+    {
+        if(pickerRowSelected == 0)
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://www.media.inaf.it/feed/?paged=%d",page]]];
+        
+        else
+            parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/?paged=%d",[satellitesTag objectAtIndex:pickerRowSelected],page]]];
+        
+        
+    }
+    
+    [parser setDelegate:self];
+    
+    // settiamo alcune proprietà
+    [parser setShouldProcessNamespaces:NO];
+    [parser  setShouldReportNamespacePrefixes:NO];
+    [ parser  setShouldResolveExternalEntities:NO];
+    
+    // avviamo il parsing del feed RSS
+    [parser parse];
+    
+    [self.collectionView reloadData];
+    
+    [self.loadingView setHidden:YES];
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     

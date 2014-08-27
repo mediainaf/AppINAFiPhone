@@ -73,12 +73,34 @@
     
     
 }
-
+-(CGSize) getContentSize:(UITextView*) myTextView{
+    return [myTextView sizeThatFits:CGSizeMake(myTextView.frame.size.width, FLT_MAX)];
+}
 -(void) calcolaScroll
 {
+    
     CGRect rect      = self.testo.frame;
-    rect.size.height = self.testo.contentSize.height;
+    rect.size.height = [self getContentSize:self.testo].height;
     self.testo.frame   = rect;
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.testo.frame.origin.y+self.testo.frame.size.height+50)];
+    
+    
+    rect = self.data.frame;
+    rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
+    self.data.frame = rect;
+    
+    rect = self.autore.frame;
+     
+    rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
+    self.autore.frame = rect;
+    
+    /*
+       CGRect rect = self.testo.frame;
+    rect.size.width = self.testo.contentSize.width + self.testo.contentInset.right + self.testo.contentInset.left;
+    rect.size.height = self.testo.contentSize.height + self.testo.contentInset.top + self.testo.contentInset.bottom;
+    self.testo.frame = rect;
+
     
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.testo.frame.origin.y+self.testo.contentSize.height+50)];
     
@@ -90,8 +112,10 @@
     rect = self.autore.frame;
     rect.origin.y = self.testo.frame.origin.y+20+self.testo.frame.size.height ;
     self.autore.frame = rect;
+
     
-    
+    */
+    NSLog(@"calcola %f",self.testo.contentSize.height);
 }
 
 -(void)viewDidLayoutSubviews
@@ -100,18 +124,27 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"appear");
+   
+    
+  
+    
+        NSLog(@"appear");
    // [self performSelector:@selector(calcolaScroll) withObject:self afterDelay:0.4];
-      [self performSelector:@selector(calcolaScroll) withObject:self afterDelay:2.0];
-   // [self calcolaScroll];
+      //[self performSelector:@selector(calcolaScroll) withObject:self afterDelay:2.0];
+    [self calcolaScroll];
+  
+
     
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    NSLog(@"3%f",self.testo.contentSize.height);
+}
 - (void)viewDidLoad
 {
     self.testo.scrollEnabled=YES;
     
-    
+    self.testo.text = self.news.content;
     
     UIBarButtonItem * apriImmagine = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(OpenLink)];
     
@@ -125,7 +158,6 @@
     self.sommario.text = self.news.summary;
     
     
-    self.testo.text = self.news.content;
     
  
     self.autore.text = self.news.author;

@@ -81,7 +81,7 @@
     
     [self.indicator startAnimating];
     
-    self.sfondoView.image=[UIImage imageNamed:@"Assets/cresisola2.jpg"];
+    self.sfondoView.image=[UIImage imageNamed:@"Assets/cerisola3.jpg"];
     self.sfondoView.alpha = 0.6;
     
 

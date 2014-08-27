@@ -343,9 +343,9 @@
 			children = (
 				03C57D8219AB3F0D00978837 /* Parser.h */,
 				03C57DA719AB3F0D00978837 /* Parser.m */,
-				03C57D8C19AB3F0D00978837 /* DetailEventsViewController.xib */,
 				03C57DC719AB3F0D00978837 /* DetailEventsViewController.h */,
 				03C57DC819AB3F0D00978837 /* DetailEventsViewController.m */,
+				03C57D8C19AB3F0D00978837 /* DetailEventsViewController.xib */,
 				03C57DC419AB3F0D00978837 /* ViewControllerTre.h */,
 				03C57DC519AB3F0D00978837 /* ViewControllerTre.m */,
 				03C57DC619AB3F0D00978837 /* ViewControllerTre.xib */,

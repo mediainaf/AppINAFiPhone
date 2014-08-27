@@ -12,7 +12,7 @@
 #import "News.h"
 
 
-@interface DetailNewsViewController : UIViewController <UIActionSheetDelegate,UIWebViewDelegate>
+@interface DetailNewsViewController : UIViewController <UIActionSheetDelegate,UIWebViewDelegate,UIScrollViewDelegate>
 
 @property (strong, nonatomic) News * news;
 @property (strong, nonatomic) IBOutlet UIImageView *immagine;

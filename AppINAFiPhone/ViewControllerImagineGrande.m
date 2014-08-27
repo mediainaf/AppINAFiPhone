@@ -25,83 +25,8 @@
     }
     return self;
 }
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    [self.indicator stopAnimating];
-    [self.indicator setHidden: YES];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Internet Connection Failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    
-    [alert show];
-}
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-  
-    if(data)
-    {
-        
-        UIImage * image = [UIImage imageWithData:data];
-        
-        //self.imageView.image=image;
-        
-        
-        // 2
-        self.scrollerView.contentSize = image.size;
-        
-        CGRect scrollViewFrame = self.scrollerView.frame;
-        CGFloat scaleWidth = scrollViewFrame.size.width / self.scrollerView.contentSize.width;
-        CGFloat scaleHeight = scrollViewFrame.size.height / self.scrollerView.contentSize.height;
-        CGFloat minScale = MIN(scaleWidth, scaleHeight);
-        
-        self.scrollerView.zoomScale = minScale;
-        
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((scrollViewFrame.size.width-(image.size.width * minScale)) /2, (scrollViewFrame.size.height-(image.size.height * minScale)) /2, image.size.width* minScale, image.size.height * minScale)];
-        
-        
-        // 6
-        [self centerScrollViewContents];
-        
-        UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
-        doubleTapRecognizer.numberOfTapsRequired = 2;
-        doubleTapRecognizer.numberOfTouchesRequired = 1;
-        [self.scrollerView addGestureRecognizer:doubleTapRecognizer];
-        
-        UITapGestureRecognizer *twoFingerTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTwoFingerTapped:)];
-        twoFingerTapRecognizer.numberOfTapsRequired = 1;
-        twoFingerTapRecognizer.numberOfTouchesRequired = 2;
-        [self.scrollerView addGestureRecognizer:twoFingerTapRecognizer];
-
-        [self.imageView setImage:image];
-        
-        [self.scrollerView setScrollEnabled:YES];
-        [self.scrollerView setBackgroundColor:[UIColor blackColor]];
-        
-        
-        [self.scrollerView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
-        
-        [self.scrollerView setMinimumZoomScale: 1];
-        [self.scrollerView setMaximumZoomScale:5.0];
-        self.scrollerView.delegate=self;
-        
-        [self.view addSubview:self.scrollerView];
-        [self.scrollerView addSubview:self.imageView];
 
 
-    }
-    else
-    {
-        [self.indicator stopAnimating];
-        [self.indicator setHidden: YES];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Internet Connection Failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        
-        [alert show];
-
-        
-    }
-    
-    
-}
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
     // 1
     CGPoint pointInView = [recognizer locationInView:self.imageView];
@@ -158,7 +83,71 @@
 -(void)viewDidAppear:(BOOL)animated
 {
       [self.indicator startAnimating];
-     NSURLConnection * c = [[NSURLConnection alloc ] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.imageUrl]]delegate:self startImmediately:YES];
+       
+    NSData * data = [NSData  dataWithContentsOfURL:[NSURL URLWithString:self.imageUrl]];
+    if(data)
+    {
+        
+        UIImage * image = [UIImage imageWithData:data];
+        
+        //self.imageView.image=image;
+        
+        
+        // 2
+        self.scrollerView.contentSize = image.size;
+        
+        CGRect scrollViewFrame = self.scrollerView.frame;
+        CGFloat scaleWidth = scrollViewFrame.size.width / self.scrollerView.contentSize.width;
+        CGFloat scaleHeight = scrollViewFrame.size.height / self.scrollerView.contentSize.height;
+        CGFloat minScale = MIN(scaleWidth, scaleHeight);
+        
+        self.scrollerView.zoomScale = minScale;
+        
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake((scrollViewFrame.size.width-(image.size.width * minScale)) /2, (scrollViewFrame.size.height-(image.size.height * minScale)) /2, image.size.width* minScale, image.size.height * minScale)];
+        
+        
+        // 6
+        [self centerScrollViewContents];
+        
+        UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
+        doubleTapRecognizer.numberOfTapsRequired = 2;
+        doubleTapRecognizer.numberOfTouchesRequired = 1;
+        [self.scrollerView addGestureRecognizer:doubleTapRecognizer];
+        
+        UITapGestureRecognizer *twoFingerTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTwoFingerTapped:)];
+        twoFingerTapRecognizer.numberOfTapsRequired = 1;
+        twoFingerTapRecognizer.numberOfTouchesRequired = 2;
+        [self.scrollerView addGestureRecognizer:twoFingerTapRecognizer];
+        
+        [self.imageView setImage:image];
+        
+        [self.scrollerView setScrollEnabled:YES];
+        [self.scrollerView setBackgroundColor:[UIColor blackColor]];
+        
+        
+        [self.scrollerView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
+        
+        [self.scrollerView setMinimumZoomScale: 1];
+        [self.scrollerView setMaximumZoomScale:5.0];
+        self.scrollerView.delegate=self;
+        
+        [self.view addSubview:self.scrollerView];
+        [self.scrollerView addSubview:self.imageView];
+        
+        
+    }
+    else
+    {
+        [self.indicator stopAnimating];
+        [self.indicator setHidden: YES];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Internet Connection Failed" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+        
+    }
+    
 }
 - (void)viewDidLoad
 {

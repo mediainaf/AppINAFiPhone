@@ -17,5 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (strong, nonatomic) IBOutlet UIImageView *loadingView;
+
 
 @end

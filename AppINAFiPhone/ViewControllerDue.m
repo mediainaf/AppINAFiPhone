@@ -123,7 +123,7 @@
         NSMutableArray * videos = [[NSMutableArray alloc] init];
         videos = [imagesAndVideoArray objectAtIndex:1];
 
-         NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
+        NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
         
         
         News * n = [[News alloc] init];

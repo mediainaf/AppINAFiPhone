@@ -12,7 +12,7 @@
 #import "News.h"
 
 
-@interface DetailEventsViewController : UIViewController <UIActionSheetDelegate>
+@interface DetailEventsViewController : UIViewController <UIActionSheetDelegate,UIScrollViewDelegate,UIWebViewDelegate>
 
 @property (strong, nonatomic) News *news;
 @property (strong, nonatomic) IBOutlet UIImageView *immagine;
@@ -23,7 +23,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *sfindoView;
 @property (strong, nonatomic) IBOutlet UILabel *titolo;
 @property (strong, nonatomic) IBOutlet UILabel *sommario;
-@property (strong, nonatomic) IBOutlet UIImageView *sfondoScroll;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @end

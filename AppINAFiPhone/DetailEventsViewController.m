@@ -150,7 +150,7 @@
     
     [self.navigationItem setRightBarButtonItem:apriImmagine animated:YES];
     
-    self.sfindoView.image = [UIImage imageNamed:@"Assets/galileo3.jpg"];
+    self.sfindoView.image = [UIImage imageNamed:@"Assets/sunset1.jpg"];
     //self.sfondoView.image = [UIImage imageNamed:@"Assets/galileo4.jpg"];
     self.sfindoView.alpha = 0.6;
     

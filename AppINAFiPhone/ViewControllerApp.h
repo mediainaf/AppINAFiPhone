@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerApp : UIViewController <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface ViewControllerApp : UIViewController <UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *sfondoView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

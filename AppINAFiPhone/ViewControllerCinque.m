@@ -11,6 +11,7 @@
 #import "ViewControllerApp.h"
 #import "ViewControllerMappa.h"
 #import "JobsViewController.h"
+#import "TweetViewController.h"
 
 @interface ViewControllerCinque ()
 
@@ -83,6 +84,11 @@
     
     
 }
-- (IBAction)openTweer:(id)sender {
+- (IBAction)openTweer:(id)sender
+{
+    TweetViewController * tweet = [[TweetViewController alloc] initWithNibName:@"TweetViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:tweet animated:YES];
+
 }
 @end

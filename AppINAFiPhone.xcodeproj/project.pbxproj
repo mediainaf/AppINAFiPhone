@@ -73,6 +73,11 @@
 		03C57E0119AB422100978837 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0019AB422100978837 /* Assets */; };
 		03C57E0319AB452500978837 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0219AB452500978837 /* LICENSE.txt */; };
 		03CBA66519B0BFF300763EEA /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA66419B0BFF300763EEA /* Job.m */; };
+		03CBA66D19B0CC7300763EEA /* TweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA66B19B0CC7300763EEA /* TweetViewController.m */; };
+		03CBA66E19B0CC7300763EEA /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA66C19B0CC7300763EEA /* TweetViewController.xib */; };
+		03CBA67019B0CD5700763EEA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBA66F19B0CD5700763EEA /* Social.framework */; };
+		03CBA67219B0CD5B00763EEA /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBA67119B0CD5B00763EEA /* Twitter.framework */; };
+		03CBA67519B0CDFB00763EEA /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA67419B0CDFB00763EEA /* App.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +191,13 @@
 		03C57E0219AB452500978837 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		03CBA66319B0BFF300763EEA /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
 		03CBA66419B0BFF300763EEA /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
+		03CBA66A19B0CC7300763EEA /* TweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetViewController.h; sourceTree = "<group>"; };
+		03CBA66B19B0CC7300763EEA /* TweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetViewController.m; sourceTree = "<group>"; };
+		03CBA66C19B0CC7300763EEA /* TweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetViewController.xib; sourceTree = "<group>"; };
+		03CBA66F19B0CD5700763EEA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		03CBA67119B0CD5B00763EEA /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		03CBA67319B0CDFB00763EEA /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		03CBA67419B0CDFB00763EEA /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,9 +205,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */,
+				03CBA67219B0CD5B00763EEA /* Twitter.framework in Frameworks */,
+				03CBA67019B0CD5700763EEA /* Social.framework in Frameworks */,
 				03C57D4119AB3DAD00978837 /* CoreGraphics.framework in Frameworks */,
 				03C57D4319AB3DAD00978837 /* UIKit.framework in Frameworks */,
-				03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +248,8 @@
 		03C57D3D19AB3DAD00978837 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03CBA67119B0CD5B00763EEA /* Twitter.framework */,
+				03CBA66F19B0CD5700763EEA /* Social.framework */,
 				03C57D3E19AB3DAD00978837 /* Foundation.framework */,
 				03C57D4019AB3DAD00978837 /* CoreGraphics.framework */,
 				03C57D4219AB3DAD00978837 /* UIKit.framework */,
@@ -372,9 +388,12 @@
 		03C57D7719AB3EC800978837 /* cinque */ = {
 			isa = PBXGroup;
 			children = (
+				03CBA66819B0CC4A00763EEA /* EarthProj */,
+				03CBA66719B0CC4300763EEA /* SpaceProj */,
+				03CBA66619B0CC3800763EEA /* ShareTwett */,
 				03C57DFF19AB414400978837 /* app */,
 				03C57DFE19AB40C500978837 /* jobs */,
-				03C57DFD19AB402B00978837 /* mappa */,
+				03C57DFD19AB402B00978837 /* sedi */,
 				03C57D9819AB3F0D00978837 /* ViewControllerCinque.h */,
 				03C57D9919AB3F0D00978837 /* ViewControllerCinque.m */,
 				03C57D9A19AB3F0D00978837 /* ViewControllerCinque.xib */,
@@ -382,7 +401,7 @@
 			name = cinque;
 			sourceTree = "<group>";
 		};
-		03C57DFD19AB402B00978837 /* mappa */ = {
+		03C57DFD19AB402B00978837 /* sedi */ = {
 			isa = PBXGroup;
 			children = (
 				03C57DA219AB3F0D00978837 /* Istituto.h */,
@@ -399,7 +418,7 @@
 				03C57DBF19AB3F0D00978837 /* ViewControllerMappa.m */,
 				03C57DC019AB3F0D00978837 /* ViewControllerMappa.xib */,
 			);
-			name = mappa;
+			name = sedi;
 			sourceTree = "<group>";
 		};
 		03C57DFE19AB40C500978837 /* jobs */ = {
@@ -426,8 +445,34 @@
 				03C57D8619AB3F0D00978837 /* ViewControllerApp.h */,
 				03C57D8719AB3F0D00978837 /* ViewControllerApp.m */,
 				03C57D8819AB3F0D00978837 /* ViewControllerApp.xib */,
+				03CBA67319B0CDFB00763EEA /* App.h */,
+				03CBA67419B0CDFB00763EEA /* App.m */,
 			);
 			name = app;
+			sourceTree = "<group>";
+		};
+		03CBA66619B0CC3800763EEA /* ShareTwett */ = {
+			isa = PBXGroup;
+			children = (
+				03CBA66A19B0CC7300763EEA /* TweetViewController.h */,
+				03CBA66B19B0CC7300763EEA /* TweetViewController.m */,
+				03CBA66C19B0CC7300763EEA /* TweetViewController.xib */,
+			);
+			name = ShareTwett;
+			sourceTree = "<group>";
+		};
+		03CBA66719B0CC4300763EEA /* SpaceProj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SpaceProj;
+			sourceTree = "<group>";
+		};
+		03CBA66819B0CC4A00763EEA /* EarthProj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = EarthProj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,6 +559,7 @@
 				03C57DD919AB3F0D00978837 /* DettagliVideoViewController.xib in Resources */,
 				03C57DE819AB3F0D00978837 /* JobsViewController.xib in Resources */,
 				03C57DF519AB3F0D00978837 /* ViewControllerQuattro.xib in Resources */,
+				03CBA66E19B0CC7300763EEA /* TweetViewController.xib in Resources */,
 				03C57D5719AB3DAD00978837 /* Images.xcassets in Resources */,
 				03C57DCF19AB3F0D00978837 /* NewsCell.xib in Resources */,
 				03C57DFB19AB3F0D00978837 /* ViewControllerTre.xib in Resources */,
@@ -572,6 +618,7 @@
 				03C57DF619AB3F0D00978837 /* ViewControllerMappa.m in Sources */,
 				03C57DDE19AB3F0D00978837 /* ViewControllerCinque.m in Sources */,
 				03C57DCE19AB3F0D00978837 /* NewsCell.m in Sources */,
+				03CBA67519B0CDFB00763EEA /* App.m in Sources */,
 				03C57DEB19AB3F0D00978837 /* ViewControllerInfo.m in Sources */,
 				03C57D4F19AB3DAD00978837 /* AppDelegate.m in Sources */,
 				03C57DCC19AB3F0D00978837 /* Video.m in Sources */,
@@ -580,6 +627,7 @@
 				03C57DF819AB3F0D00978837 /* DetailNewsViewController.m in Sources */,
 				03C57DF319AB3F0D00978837 /* InternetNewsViewController.m in Sources */,
 				03C57D4B19AB3DAD00978837 /* main.m in Sources */,
+				03CBA66D19B0CC7300763EEA /* TweetViewController.m in Sources */,
 				03C57DF119AB3F0D00978837 /* ViewControllerUno.m in Sources */,
 				039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */,
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,

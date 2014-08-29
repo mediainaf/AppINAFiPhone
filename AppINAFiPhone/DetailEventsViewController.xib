@@ -36,7 +36,7 @@
                             <rect key="frame" x="10" y="144" width="300" height="122"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" editable="NO" id="47o-sX-sPr">
+                        <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" id="47o-sX-sPr">
                             <rect key="frame" x="10" y="270" width="300" height="94"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

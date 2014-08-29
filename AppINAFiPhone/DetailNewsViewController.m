@@ -47,7 +47,19 @@
     {
         InternetNewsViewController * internetViewController = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
         
-        internetViewController.link =self.news.link;
+        NSArray * elements = [ self.news.link componentsSeparatedByString:@"/"];
+        
+        NSMutableArray * elementsArray = [[NSMutableArray alloc] init ];
+        
+        [elementsArray setArray:elements];
+        
+        [elementsArray removeLastObject];
+        
+        NSMutableString * link = [[NSMutableString alloc] initWithString:[elementsArray componentsJoinedByString:@"/"]];
+        
+
+        
+        internetViewController.link =link;
         
         [self.navigationController pushViewController:internetViewController animated:YES];
         
@@ -142,7 +154,7 @@
 }
 - (void)viewDidLoad
 {
-    self.testo.scrollEnabled=YES;
+   // self.testo.scrollEnabled=YES;
     
     self.testo.text = self.news.content;
     
@@ -156,9 +168,6 @@
     
     self.titolo.text = self.news.title;
     self.sommario.text = self.news.summary;
-    
-    
-    
  
     self.autore.text = self.news.author;
     self.data.text = self.news.date;

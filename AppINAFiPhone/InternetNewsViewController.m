@@ -50,6 +50,8 @@
     
     [self.indicator startAnimating];
     
+    
+    NSLog(@"%@",self.link);
     NSURL * urlNews = [NSURL URLWithString:self.link];
     
     NSURLRequest * newsUrlRequest = [NSURLRequest requestWithURL:urlNews];

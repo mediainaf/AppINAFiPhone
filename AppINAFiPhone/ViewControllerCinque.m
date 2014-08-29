@@ -30,12 +30,16 @@
 - (void)viewDidLoad
 {
     self.title = @"More";
-    self.sfondoView.image=[UIImage imageNamed:@"Assets/galileo.jpg"];
+    self.sfondoView.image=[UIImage imageNamed:@"Assets/LBTPort.jpg"];
     
-    [self.bottoneApp setImage:[UIImage imageNamed:@"Assets/bottoneapplicazioni.png"] forState:UIControlStateNormal];
+    [self.bottoneApp setImage:[UIImage imageNamed:@"Assets/bottoneApps.png"] forState:UIControlStateNormal];
     
-    [self.bottoneMappa setImage:[UIImage imageNamed:@"Assets/bottonemappa.png"] forState:UIControlStateNormal];
-    [self.jobs setImage:[UIImage imageNamed:@"Assets/bottonejobs.png"] forState:UIControlStateNormal];
+    [self.bottoneMappa setImage:[UIImage imageNamed:@"Assets/bottoneSedi.png"] forState:UIControlStateNormal];
+    [self.buttonE setImage:[UIImage imageNamed:@"Assets/bottonePT.png"] forState:UIControlStateNormal];
+    [self.buttonS setImage:[UIImage imageNamed:@"Assets/bottonePS.png"] forState:UIControlStateNormal];
+    
+    [self.buttonT setImage:[UIImage imageNamed:@"Assets/bottoneTweet.png"] forState:UIControlStateNormal];
+    [self.jobs setImage:[UIImage imageNamed:@"Assets/bottoneLN.png"] forState:UIControlStateNormal];
 
     
     [super viewDidLoad];
@@ -62,6 +66,15 @@
     [self.navigationController pushViewController:viewControllerMappa animated:YES];
     
 }
+- (IBAction)openEarth:(id)sender {
+}
+
+- (IBAction)openSpace:(id)sender {
+}
+
+- (IBAction)openWorks:(id)sender {
+}
+
 - (IBAction)apriJobs:(id)sender
 {
     JobsViewController *jobsViewController = [[JobsViewController alloc] initWithNibName:@"JobsViewController" bundle:nil];
@@ -69,5 +82,7 @@
     [self.navigationController pushViewController:jobsViewController animated:YES];
     
     
+}
+- (IBAction)openTweer:(id)sender {
 }
 @end

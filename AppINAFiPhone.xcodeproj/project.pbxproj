@@ -22,7 +22,6 @@
 		03C57D6819AB3DAD00978837 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03C57D6619AB3DAD00978837 /* InfoPlist.strings */; };
 		03C57D6A19AB3DAD00978837 /* AppINAFiPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D6919AB3DAD00978837 /* AppINAFiPhoneTests.m */; };
 		03C57DC919AB3F0D00978837 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D7919AB3F0D00978837 /* Annotation.m */; };
-		03C57DCA19AB3F0D00978837 /* DetailJobsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C57D7A19AB3F0D00978837 /* DetailJobsViewController.xib */; };
 		03C57DCB19AB3F0D00978837 /* DetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D7C19AB3F0D00978837 /* DetailMapViewController.m */; };
 		03C57DCC19AB3F0D00978837 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D7D19AB3F0D00978837 /* Video.m */; };
 		03C57DCD19AB3F0D00978837 /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D7F19AB3F0D00978837 /* VideoCell.m */; };
@@ -35,7 +34,6 @@
 		03C57DD419AB3F0D00978837 /* JobsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C57D8919AB3F0D00978837 /* JobsCell.xib */; };
 		03C57DD519AB3F0D00978837 /* JobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D8B19AB3F0D00978837 /* JobsViewController.m */; };
 		03C57DD619AB3F0D00978837 /* DetailEventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C57D8C19AB3F0D00978837 /* DetailEventsViewController.xib */; };
-		03C57DD719AB3F0D00978837 /* DetailJobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D8E19AB3F0D00978837 /* DetailJobsViewController.m */; };
 		03C57DD819AB3F0D00978837 /* DettagliVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D9019AB3F0D00978837 /* DettagliVideoViewController.m */; };
 		03C57DD919AB3F0D00978837 /* DettagliVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03C57D9119AB3F0D00978837 /* DettagliVideoViewController.xib */; };
 		03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57D9319AB3F0D00978837 /* ViewControllerCredits.m */; };
@@ -74,6 +72,7 @@
 		03C57DFC19AB3F0D00978837 /* DetailEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C57DC819AB3F0D00978837 /* DetailEventsViewController.m */; };
 		03C57E0119AB422100978837 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0019AB422100978837 /* Assets */; };
 		03C57E0319AB452500978837 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 03C57E0219AB452500978837 /* LICENSE.txt */; };
+		03CBA66519B0BFF300763EEA /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA66419B0BFF300763EEA /* Job.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +108,6 @@
 		03C57D6919AB3DAD00978837 /* AppINAFiPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppINAFiPhoneTests.m; sourceTree = "<group>"; };
 		03C57D7819AB3F0D00978837 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
 		03C57D7919AB3F0D00978837 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
-		03C57D7A19AB3F0D00978837 /* DetailJobsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailJobsViewController.xib; sourceTree = "<group>"; };
 		03C57D7B19AB3F0D00978837 /* DetailMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMapViewController.h; sourceTree = "<group>"; };
 		03C57D7C19AB3F0D00978837 /* DetailMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMapViewController.m; sourceTree = "<group>"; };
 		03C57D7D19AB3F0D00978837 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
@@ -128,8 +126,6 @@
 		03C57D8A19AB3F0D00978837 /* JobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsViewController.h; sourceTree = "<group>"; };
 		03C57D8B19AB3F0D00978837 /* JobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsViewController.m; sourceTree = "<group>"; };
 		03C57D8C19AB3F0D00978837 /* DetailEventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailEventsViewController.xib; sourceTree = "<group>"; };
-		03C57D8D19AB3F0D00978837 /* DetailJobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailJobsViewController.h; sourceTree = "<group>"; };
-		03C57D8E19AB3F0D00978837 /* DetailJobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailJobsViewController.m; sourceTree = "<group>"; };
 		03C57D8F19AB3F0D00978837 /* DettagliVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DettagliVideoViewController.h; sourceTree = "<group>"; };
 		03C57D9019AB3F0D00978837 /* DettagliVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DettagliVideoViewController.m; sourceTree = "<group>"; };
 		03C57D9119AB3F0D00978837 /* DettagliVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DettagliVideoViewController.xib; sourceTree = "<group>"; };
@@ -188,6 +184,8 @@
 		03C57DC819AB3F0D00978837 /* DetailEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailEventsViewController.m; sourceTree = "<group>"; };
 		03C57E0019AB422100978837 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		03C57E0219AB452500978837 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		03CBA66319B0BFF300763EEA /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
+		03CBA66419B0BFF300763EEA /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,9 +295,9 @@
 				03C57D9219AB3F0D00978837 /* ViewControllerCredits.h */,
 				03C57D9319AB3F0D00978837 /* ViewControllerCredits.m */,
 				03C57D9419AB3F0D00978837 /* ViewControllerCredits.xib */,
-				03C57D9619AB3F0D00978837 /* HomeTableViewCell.xib */,
-				03C57D9519AB3F0D00978837 /* HomeTableViewCell.m */,
 				03C57D9719AB3F0D00978837 /* HomeTableViewCell.h */,
+				03C57D9519AB3F0D00978837 /* HomeTableViewCell.m */,
+				03C57D9619AB3F0D00978837 /* HomeTableViewCell.xib */,
 				03C57DAD19AB3F0D00978837 /* ViewControllerInfo.h */,
 				03C57DAE19AB3F0D00978837 /* ViewControllerInfo.m */,
 				03C57DAF19AB3F0D00978837 /* ViewControllerInfo.xib */,
@@ -407,15 +405,14 @@
 		03C57DFE19AB40C500978837 /* jobs */ = {
 			isa = PBXGroup;
 			children = (
-				03C57D7A19AB3F0D00978837 /* DetailJobsViewController.xib */,
-				03C57D8D19AB3F0D00978837 /* DetailJobsViewController.h */,
-				03C57D8E19AB3F0D00978837 /* DetailJobsViewController.m */,
-				03C57D8919AB3F0D00978837 /* JobsCell.xib */,
 				03C57D8A19AB3F0D00978837 /* JobsViewController.h */,
 				03C57D8B19AB3F0D00978837 /* JobsViewController.m */,
 				03C57DA919AB3F0D00978837 /* JobsViewController.xib */,
 				03C57DB319AB3F0D00978837 /* JobsCell.h */,
 				03C57DB419AB3F0D00978837 /* JobsCell.m */,
+				03C57D8919AB3F0D00978837 /* JobsCell.xib */,
+				03CBA66319B0BFF300763EEA /* Job.h */,
+				03CBA66419B0BFF300763EEA /* Job.m */,
 			);
 			name = jobs;
 			sourceTree = "<group>";
@@ -514,7 +511,6 @@
 			files = (
 				03C57DE519AB3F0D00978837 /* VideoCell.xib in Resources */,
 				03C57DDD19AB3F0D00978837 /* HomeTableViewCell.xib in Resources */,
-				03C57DCA19AB3F0D00978837 /* DetailJobsViewController.xib in Resources */,
 				03C57DD919AB3F0D00978837 /* DettagliVideoViewController.xib in Resources */,
 				03C57DE819AB3F0D00978837 /* JobsViewController.xib in Resources */,
 				03C57DF519AB3F0D00978837 /* ViewControllerQuattro.xib in Resources */,
@@ -557,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CBA66519B0BFF300763EEA /* Job.m in Sources */,
 				03C57DFA19AB3F0D00978837 /* ViewControllerTre.m in Sources */,
 				03C57DD819AB3F0D00978837 /* DettagliVideoViewController.m in Sources */,
 				03C57DCB19AB3F0D00978837 /* DetailMapViewController.m in Sources */,
@@ -588,7 +585,6 @@
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,
 				039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */,
 				03C57DE019AB3F0D00978837 /* News.m in Sources */,
-				03C57DD719AB3F0D00978837 /* DetailJobsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 
 @interface JobsCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UITextView *textView;
+
+@property (strong, nonatomic) IBOutlet UILabel *title;
+@property (strong, nonatomic) IBOutlet UILabel *date;
 
 @end

@@ -37,7 +37,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" selectable="NO" id="5W3-nJ-l64">
+                        <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" id="5W3-nJ-l64">
                             <rect key="frame" x="10" y="262" width="300" height="94"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

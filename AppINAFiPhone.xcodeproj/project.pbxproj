@@ -78,6 +78,14 @@
 		03CBA67019B0CD5700763EEA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBA66F19B0CD5700763EEA /* Social.framework */; };
 		03CBA67219B0CD5B00763EEA /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBA67119B0CD5B00763EEA /* Twitter.framework */; };
 		03CBA67519B0CDFB00763EEA /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA67419B0CDFB00763EEA /* App.m */; };
+		03CBA67819B0D2A300763EEA /* AllSatellite.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA67719B0D2A300763EEA /* AllSatellite.m */; };
+		03CBA67B19B0D2B400763EEA /* Satellite.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA67A19B0D2B400763EEA /* Satellite.m */; };
+		03CBA67E19B0D2E800763EEA /* SpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA67D19B0D2E800763EEA /* SpaceTableViewCell.m */; };
+		03CBA68019B0D30200763EEA /* SpaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA67F19B0D30200763EEA /* SpaceTableViewCell.xib */; };
+		03CBA68919B0D37B00763EEA /* SpaceProjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA68719B0D37B00763EEA /* SpaceProjViewController.m */; };
+		03CBA68A19B0D37B00763EEA /* SpaceProjViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA68819B0D37B00763EEA /* SpaceProjViewController.xib */; };
+		03CBA68E19B0D42900763EEA /* MapOrbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA68C19B0D42900763EEA /* MapOrbitViewController.m */; };
+		03CBA68F19B0D42900763EEA /* MapOrbitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA68D19B0D42900763EEA /* MapOrbitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +206,19 @@
 		03CBA67119B0CD5B00763EEA /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		03CBA67319B0CDFB00763EEA /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		03CBA67419B0CDFB00763EEA /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
+		03CBA67619B0D2A300763EEA /* AllSatellite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllSatellite.h; sourceTree = "<group>"; };
+		03CBA67719B0D2A300763EEA /* AllSatellite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllSatellite.m; sourceTree = "<group>"; };
+		03CBA67919B0D2B400763EEA /* Satellite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Satellite.h; sourceTree = "<group>"; };
+		03CBA67A19B0D2B400763EEA /* Satellite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Satellite.m; sourceTree = "<group>"; };
+		03CBA67C19B0D2E800763EEA /* SpaceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceTableViewCell.h; sourceTree = "<group>"; };
+		03CBA67D19B0D2E800763EEA /* SpaceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceTableViewCell.m; sourceTree = "<group>"; };
+		03CBA67F19B0D30200763EEA /* SpaceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpaceTableViewCell.xib; sourceTree = "<group>"; };
+		03CBA68619B0D37B00763EEA /* SpaceProjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceProjViewController.h; sourceTree = "<group>"; };
+		03CBA68719B0D37B00763EEA /* SpaceProjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceProjViewController.m; sourceTree = "<group>"; };
+		03CBA68819B0D37B00763EEA /* SpaceProjViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpaceProjViewController.xib; sourceTree = "<group>"; };
+		03CBA68B19B0D42900763EEA /* MapOrbitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapOrbitViewController.h; sourceTree = "<group>"; };
+		03CBA68C19B0D42900763EEA /* MapOrbitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapOrbitViewController.m; sourceTree = "<group>"; };
+		03CBA68D19B0D42900763EEA /* MapOrbitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapOrbitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +485,19 @@
 		03CBA66719B0CC4300763EEA /* SpaceProj */ = {
 			isa = PBXGroup;
 			children = (
+				03CBA67619B0D2A300763EEA /* AllSatellite.h */,
+				03CBA67719B0D2A300763EEA /* AllSatellite.m */,
+				03CBA67919B0D2B400763EEA /* Satellite.h */,
+				03CBA67A19B0D2B400763EEA /* Satellite.m */,
+				03CBA67C19B0D2E800763EEA /* SpaceTableViewCell.h */,
+				03CBA67D19B0D2E800763EEA /* SpaceTableViewCell.m */,
+				03CBA67F19B0D30200763EEA /* SpaceTableViewCell.xib */,
+				03CBA68619B0D37B00763EEA /* SpaceProjViewController.h */,
+				03CBA68719B0D37B00763EEA /* SpaceProjViewController.m */,
+				03CBA68819B0D37B00763EEA /* SpaceProjViewController.xib */,
+				03CBA68B19B0D42900763EEA /* MapOrbitViewController.h */,
+				03CBA68C19B0D42900763EEA /* MapOrbitViewController.m */,
+				03CBA68D19B0D42900763EEA /* MapOrbitViewController.xib */,
 			);
 			name = SpaceProj;
 			sourceTree = "<group>";
@@ -562,6 +596,7 @@
 				03CBA66E19B0CC7300763EEA /* TweetViewController.xib in Resources */,
 				03C57D5719AB3DAD00978837 /* Images.xcassets in Resources */,
 				03C57DCF19AB3F0D00978837 /* NewsCell.xib in Resources */,
+				03CBA68F19B0D42900763EEA /* MapOrbitViewController.xib in Resources */,
 				03C57DFB19AB3F0D00978837 /* ViewControllerTre.xib in Resources */,
 				03C57DE219AB3F0D00978837 /* ViewControllerAnnotation.xib in Resources */,
 				03C57DF019AB3F0D00978837 /* DetailMapViewController.xib in Resources */,
@@ -572,6 +607,7 @@
 				03C57DF919AB3F0D00978837 /* DetailNewsViewController.xib in Resources */,
 				03C57DDB19AB3F0D00978837 /* ViewControllerCredits.xib in Resources */,
 				03C57DEA19AB3F0D00978837 /* ViewControllerImagineGrande.xib in Resources */,
+				03CBA68019B0D30200763EEA /* SpaceTableViewCell.xib in Resources */,
 				03C57DE319AB3F0D00978837 /* InternetNewsViewController.xib in Resources */,
 				03C57DD419AB3F0D00978837 /* JobsCell.xib in Resources */,
 				03C57DF219AB3F0D00978837 /* ViewControllerUno.xib in Resources */,
@@ -581,6 +617,7 @@
 				03C57DD619AB3F0D00978837 /* DetailEventsViewController.xib in Resources */,
 				03C57DD119AB3F0D00978837 /* AppTableCell.xib in Resources */,
 				03C57DEE19AB3F0D00978837 /* ViewControllerDue.xib in Resources */,
+				03CBA68A19B0D37B00763EEA /* SpaceProjViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,20 +656,25 @@
 				03C57DDE19AB3F0D00978837 /* ViewControllerCinque.m in Sources */,
 				03C57DCE19AB3F0D00978837 /* NewsCell.m in Sources */,
 				03CBA67519B0CDFB00763EEA /* App.m in Sources */,
+				03CBA68919B0D37B00763EEA /* SpaceProjViewController.m in Sources */,
 				03C57DEB19AB3F0D00978837 /* ViewControllerInfo.m in Sources */,
+				03CBA67819B0D2A300763EEA /* AllSatellite.m in Sources */,
 				03C57D4F19AB3DAD00978837 /* AppDelegate.m in Sources */,
+				03CBA67E19B0D2E800763EEA /* SpaceTableViewCell.m in Sources */,
 				03C57DCC19AB3F0D00978837 /* Video.m in Sources */,
 				03C57DD519AB3F0D00978837 /* JobsViewController.m in Sources */,
 				03C57DF419AB3F0D00978837 /* ViewControllerQuattro.m in Sources */,
 				03C57DF819AB3F0D00978837 /* DetailNewsViewController.m in Sources */,
 				03C57DF319AB3F0D00978837 /* InternetNewsViewController.m in Sources */,
 				03C57D4B19AB3DAD00978837 /* main.m in Sources */,
+				03CBA67B19B0D2B400763EEA /* Satellite.m in Sources */,
 				03CBA66D19B0CC7300763EEA /* TweetViewController.m in Sources */,
 				03C57DF119AB3F0D00978837 /* ViewControllerUno.m in Sources */,
 				039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */,
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,
 				039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */,
 				03C57DE019AB3F0D00978837 /* News.m in Sources */,
+				03CBA68E19B0D42900763EEA /* MapOrbitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

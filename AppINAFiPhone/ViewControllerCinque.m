@@ -12,6 +12,7 @@
 #import "ViewControllerMappa.h"
 #import "JobsViewController.h"
 #import "TweetViewController.h"
+#import "SpaceProjViewController.h"
 
 @interface ViewControllerCinque ()
 
@@ -70,7 +71,11 @@
 - (IBAction)openEarth:(id)sender {
 }
 
-- (IBAction)openSpace:(id)sender {
+- (IBAction)openSpace:(id)sender
+{
+    SpaceProjViewController * s = [[SpaceProjViewController alloc] initWithNibName:@"SpaceProjViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:s animated:YES];
 }
 
 - (IBAction)openWorks:(id)sender {

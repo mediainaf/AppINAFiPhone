@@ -814,10 +814,10 @@ finish:
 
     //cell.anteprima.text = @"Là dove osa Voyager 1";
     //cell.immaginePreview.image = [UIImage imageNamed:@"Assets/thumb-ibex-150x150.jpg"];
-
-    cell.backgroundView.alpha = 0.7;
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
+    //cell.backgroundColor=[UIColor colorWithWhite:0.9 alpha:0.7];
+    //cell.backgroundView.alpha = 0.7;
+    cell.backgroundColor = [UIColor clearColor];
+    //cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
    
     if([news count]>0)
     {

@@ -179,8 +179,8 @@ NSArray * titoli;
         cell= [[AppTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //cell.backgroundColor = [UIColor clearColor];
-    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
+    cell.backgroundColor = [UIColor clearColor];
+    //cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
     
     if([satellites count] >0)
     {

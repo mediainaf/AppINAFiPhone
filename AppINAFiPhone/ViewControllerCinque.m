@@ -32,7 +32,7 @@
 - (void)viewDidLoad
 {
     self.title = @"More";
-    self.sfondoView.image=[UIImage imageNamed:@"Assets/LBTPort.jpg"];
+    self.sfondoView.image=[UIImage imageNamed:@"Assets/LBTPort2.jpg"];
     
     [self.bottoneApp setImage:[UIImage imageNamed:@"Assets/bottoneApps.png"] forState:UIControlStateNormal];
     

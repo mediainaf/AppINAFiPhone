@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033A6A0F19B1FBBD0086D22C /* Telescope.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A0E19B1FBBD0086D22C /* Telescope.m */; };
 		039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42619AC8F1B00E142C7 /* ParserImages.m */; };
 		039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */; };
 		03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D3E19AB3DAD00978837 /* Foundation.framework */; };
@@ -99,6 +100,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033A6A0D19B1FBBD0086D22C /* Telescope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telescope.h; sourceTree = "<group>"; };
+		033A6A0E19B1FBBD0086D22C /* Telescope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telescope.m; sourceTree = "<group>"; };
 		039CF42519AC8F1B00E142C7 /* ParserImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserImages.h; sourceTree = "<group>"; };
 		039CF42619AC8F1B00E142C7 /* ParserImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserImages.m; sourceTree = "<group>"; };
 		039CF42719AC8F1B00E142C7 /* ParserThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserThumbnail.h; sourceTree = "<group>"; };
@@ -247,6 +250,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033A6A0C19B1FBA30086D22C /* Webcam */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Webcam;
+			sourceTree = "<group>";
+		};
 		03C57D3219AB3DAD00978837 = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +515,9 @@
 		03CBA66819B0CC4A00763EEA /* EarthProj */ = {
 			isa = PBXGroup;
 			children = (
+				033A6A0C19B1FBA30086D22C /* Webcam */,
+				033A6A0D19B1FBBD0086D22C /* Telescope.h */,
+				033A6A0E19B1FBBD0086D22C /* Telescope.m */,
 			);
 			name = EarthProj;
 			sourceTree = "<group>";
@@ -662,6 +675,7 @@
 				03C57D4F19AB3DAD00978837 /* AppDelegate.m in Sources */,
 				03CBA67E19B0D2E800763EEA /* SpaceTableViewCell.m in Sources */,
 				03C57DCC19AB3F0D00978837 /* Video.m in Sources */,
+				033A6A0F19B1FBBD0086D22C /* Telescope.m in Sources */,
 				03C57DD519AB3F0D00978837 /* JobsViewController.m in Sources */,
 				03C57DF419AB3F0D00978837 /* ViewControllerQuattro.m in Sources */,
 				03C57DF819AB3F0D00978837 /* DetailNewsViewController.m in Sources */,
@@ -797,6 +811,7 @@
 				INFOPLIST_FILE = "AppINAFiPhone/AppINAFiPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -812,6 +827,7 @@
 				INFOPLIST_FILE = "AppINAFiPhone/AppINAFiPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

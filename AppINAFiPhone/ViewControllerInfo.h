@@ -10,8 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerInfo : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *logoInage;
+@property (strong, nonatomic) IBOutlet UITextView *text;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+
 - (IBAction)dismis:(id)sender;
-@property (strong, nonatomic) IBOutlet UIImageView *sfondoView;
 
 @end

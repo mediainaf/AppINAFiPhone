@@ -406,7 +406,7 @@
             
             
             CLLocationCoordinate2D cord ;
-            cord.latitude=v.coordinate.latitude;
+            cord.latitude=v.coordinate.latitude+0.2;
             cord.longitude=v.coordinate.longitude;
             
             location = cord;
@@ -430,6 +430,8 @@
             calloutViewFrame.origin = CGPointMake(-calloutViewFrame.size.width/2 +8, -calloutViewFrame.size.height-10);
             
             va.view.frame = calloutViewFrame;
+            
+            NSLog(@"%f %f",calloutViewFrame.origin.x,calloutViewFrame.origin.y);
             
             //va.view.layer.cornerRadius = 5;
             //va.view.layer.masksToBounds = YES;

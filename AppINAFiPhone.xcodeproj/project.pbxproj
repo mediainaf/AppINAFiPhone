@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0337843D19B36B54000ED9BD /* WebcamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0337843C19B36B54000ED9BD /* WebcamCell.m */; };
+		0337843F19B36B73000ED9BD /* WebcamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0337843E19B36B73000ED9BD /* WebcamCell.xib */; };
 		033A6A0F19B1FBBD0086D22C /* Telescope.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A0E19B1FBBD0086D22C /* Telescope.m */; };
+		033A6A1319B1FC210086D22C /* EarthProjViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A1119B1FC210086D22C /* EarthProjViewController.m */; };
+		033A6A1419B1FC210086D22C /* EarthProjViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033A6A1219B1FC210086D22C /* EarthProjViewController.xib */; };
+		033A6A1819B1FC890086D22C /* WebCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A1619B1FC890086D22C /* WebCamViewController.m */; };
+		033A6A1919B1FC890086D22C /* WebCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033A6A1719B1FC890086D22C /* WebCamViewController.xib */; };
+		033A6A1D19B1FCFF0086D22C /* EarthProhListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A1B19B1FCFF0086D22C /* EarthProhListViewController.m */; };
+		033A6A1E19B1FCFF0086D22C /* EarthProhListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033A6A1C19B1FCFF0086D22C /* EarthProhListViewController.xib */; };
 		039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42619AC8F1B00E142C7 /* ParserImages.m */; };
 		039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */; };
 		03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D3E19AB3DAD00978837 /* Foundation.framework */; };
@@ -100,8 +108,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0337843B19B36B54000ED9BD /* WebcamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCell.h; sourceTree = "<group>"; };
+		0337843C19B36B54000ED9BD /* WebcamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamCell.m; sourceTree = "<group>"; };
+		0337843E19B36B73000ED9BD /* WebcamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamCell.xib; sourceTree = "<group>"; };
 		033A6A0D19B1FBBD0086D22C /* Telescope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Telescope.h; sourceTree = "<group>"; };
 		033A6A0E19B1FBBD0086D22C /* Telescope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Telescope.m; sourceTree = "<group>"; };
+		033A6A1019B1FC210086D22C /* EarthProjViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthProjViewController.h; sourceTree = "<group>"; };
+		033A6A1119B1FC210086D22C /* EarthProjViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthProjViewController.m; sourceTree = "<group>"; };
+		033A6A1219B1FC210086D22C /* EarthProjViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EarthProjViewController.xib; sourceTree = "<group>"; };
+		033A6A1519B1FC890086D22C /* WebCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebCamViewController.h; sourceTree = "<group>"; };
+		033A6A1619B1FC890086D22C /* WebCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebCamViewController.m; sourceTree = "<group>"; };
+		033A6A1719B1FC890086D22C /* WebCamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebCamViewController.xib; sourceTree = "<group>"; };
+		033A6A1A19B1FCFF0086D22C /* EarthProhListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthProhListViewController.h; sourceTree = "<group>"; };
+		033A6A1B19B1FCFF0086D22C /* EarthProhListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthProhListViewController.m; sourceTree = "<group>"; };
+		033A6A1C19B1FCFF0086D22C /* EarthProhListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EarthProhListViewController.xib; sourceTree = "<group>"; };
 		039CF42519AC8F1B00E142C7 /* ParserImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserImages.h; sourceTree = "<group>"; };
 		039CF42619AC8F1B00E142C7 /* ParserImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserImages.m; sourceTree = "<group>"; };
 		039CF42719AC8F1B00E142C7 /* ParserThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserThumbnail.h; sourceTree = "<group>"; };
@@ -253,6 +273,12 @@
 		033A6A0C19B1FBA30086D22C /* Webcam */ = {
 			isa = PBXGroup;
 			children = (
+				033A6A1519B1FC890086D22C /* WebCamViewController.h */,
+				033A6A1619B1FC890086D22C /* WebCamViewController.m */,
+				033A6A1719B1FC890086D22C /* WebCamViewController.xib */,
+				0337843B19B36B54000ED9BD /* WebcamCell.h */,
+				0337843C19B36B54000ED9BD /* WebcamCell.m */,
+				0337843E19B36B73000ED9BD /* WebcamCell.xib */,
 			);
 			name = Webcam;
 			sourceTree = "<group>";
@@ -518,6 +544,12 @@
 				033A6A0C19B1FBA30086D22C /* Webcam */,
 				033A6A0D19B1FBBD0086D22C /* Telescope.h */,
 				033A6A0E19B1FBBD0086D22C /* Telescope.m */,
+				033A6A1019B1FC210086D22C /* EarthProjViewController.h */,
+				033A6A1119B1FC210086D22C /* EarthProjViewController.m */,
+				033A6A1219B1FC210086D22C /* EarthProjViewController.xib */,
+				033A6A1A19B1FCFF0086D22C /* EarthProhListViewController.h */,
+				033A6A1B19B1FCFF0086D22C /* EarthProhListViewController.m */,
+				033A6A1C19B1FCFF0086D22C /* EarthProhListViewController.xib */,
 			);
 			name = EarthProj;
 			sourceTree = "<group>";
@@ -615,14 +647,18 @@
 				03C57DF019AB3F0D00978837 /* DetailMapViewController.xib in Resources */,
 				03C57DEC19AB3F0D00978837 /* ViewControllerInfo.xib in Resources */,
 				03C57E0319AB452500978837 /* LICENSE.txt in Resources */,
+				033A6A1419B1FC210086D22C /* EarthProjViewController.xib in Resources */,
+				033A6A1E19B1FCFF0086D22C /* EarthProhListViewController.xib in Resources */,
 				03C57D4919AB3DAD00978837 /* InfoPlist.strings in Resources */,
 				03C57E0119AB422100978837 /* Assets in Resources */,
 				03C57DF919AB3F0D00978837 /* DetailNewsViewController.xib in Resources */,
 				03C57DDB19AB3F0D00978837 /* ViewControllerCredits.xib in Resources */,
+				0337843F19B36B73000ED9BD /* WebcamCell.xib in Resources */,
 				03C57DEA19AB3F0D00978837 /* ViewControllerImagineGrande.xib in Resources */,
 				03CBA68019B0D30200763EEA /* SpaceTableViewCell.xib in Resources */,
 				03C57DE319AB3F0D00978837 /* InternetNewsViewController.xib in Resources */,
 				03C57DD419AB3F0D00978837 /* JobsCell.xib in Resources */,
+				033A6A1919B1FC890086D22C /* WebCamViewController.xib in Resources */,
 				03C57DF219AB3F0D00978837 /* ViewControllerUno.xib in Resources */,
 				03C57DF719AB3F0D00978837 /* ViewControllerMappa.xib in Resources */,
 				03C57DD319AB3F0D00978837 /* ViewControllerApp.xib in Resources */,
@@ -653,7 +689,9 @@
 				03C57DFA19AB3F0D00978837 /* ViewControllerTre.m in Sources */,
 				03C57DD819AB3F0D00978837 /* DettagliVideoViewController.m in Sources */,
 				03C57DCB19AB3F0D00978837 /* DetailMapViewController.m in Sources */,
+				033A6A1319B1FC210086D22C /* EarthProjViewController.m in Sources */,
 				03C57DE419AB3F0D00978837 /* Istituto.m in Sources */,
+				0337843D19B36B54000ED9BD /* WebcamCell.m in Sources */,
 				03C57DCD19AB3F0D00978837 /* VideoCell.m in Sources */,
 				03C57DE719AB3F0D00978837 /* Parser.m in Sources */,
 				03C57DD019AB3F0D00978837 /* AppTableCell.m in Sources */,
@@ -682,7 +720,9 @@
 				03C57DF319AB3F0D00978837 /* InternetNewsViewController.m in Sources */,
 				03C57D4B19AB3DAD00978837 /* main.m in Sources */,
 				03CBA67B19B0D2B400763EEA /* Satellite.m in Sources */,
+				033A6A1D19B1FCFF0086D22C /* EarthProhListViewController.m in Sources */,
 				03CBA66D19B0CC7300763EEA /* TweetViewController.m in Sources */,
+				033A6A1819B1FC890086D22C /* WebCamViewController.m in Sources */,
 				03C57DF119AB3F0D00978837 /* ViewControllerUno.m in Sources */,
 				039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */,
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,

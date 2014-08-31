@@ -151,7 +151,7 @@ NSArray * titoli;
     self.navigationItem.rightBarButtonItem=buttonBar;
     
     
-    
+    self.tableView.rowHeight=80;
     
    // self.title = @"Progetti Spaziali";
     

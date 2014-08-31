@@ -23,23 +23,55 @@
     }
     return self;
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSData * response = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://app.media.inaf.it/GetAbout.php"]];
+    
+    if (response)
+    {
+        NSArray * jsonArray;
+        
+        NSError *e = nil;
+        jsonArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error: &e];
+        
+        
+        for(NSDictionary * d in jsonArray)
+        {
+            
+            
+            NSString *info = [d valueForKey:@"descr"];
+            
+            NSLog(@"%@",info);
+            
+            self.text.text = info;
+            
+            
+        }
+        
+        
+        
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Internet Connection Error" message:@"Change internet settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+}
 - (void)viewDidLoad
 {
-    self.sfondoView.image=[UIImage imageNamed:@"Assets/cerisola-sfondo.jpg"];
     
-    self.logoInage.image = [UIImage imageNamed:@"Assets/logoinaf.gif"];
+    UIDevice * device = [UIDevice currentDevice];
+    
+    if( [device.systemVersion hasPrefix:@"6"])
+    {
+        self.navBar.barStyle = UIBarStyleBlackOpaque;
+        
+    }
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)dismis:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];

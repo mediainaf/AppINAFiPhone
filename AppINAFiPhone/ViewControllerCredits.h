@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerCredits : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *logo1;
-@property (strong, nonatomic) IBOutlet UIImageView *logo2;
+
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 - (IBAction)chiudi:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 @end

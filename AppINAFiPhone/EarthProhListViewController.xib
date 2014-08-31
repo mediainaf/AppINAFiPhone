@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpaceProjViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EarthProhListViewController">
             <connections>
-                <outlet property="sfondoView" destination="YU1-c4-aiz" id="x1G-4Y-ksn"/>
-                <outlet property="tableView" destination="Y8e-nm-87O" id="eK3-JD-E1q"/>
+                <outlet property="sfondoView" destination="oWE-kM-VgZ" id="RNo-de-h02"/>
+                <outlet property="tableView" destination="lbP-1a-1sI" id="BEF-6C-tgN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,22 +17,22 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="YU1-c4-aiz">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oWE-kM-VgZ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="tfV-4F-zje">
+                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="yY9-Db-65j">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="Y8e-nm-87O">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="lbP-1a-1sI">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="uek-tx-wXV"/>
-                        <outlet property="delegate" destination="-1" id="YHy-GO-w46"/>
+                        <outlet property="dataSource" destination="-1" id="B76-bG-ZsW"/>
+                        <outlet property="delegate" destination="-1" id="9zc-hX-Cft"/>
                     </connections>
                 </tableView>
             </subviews>

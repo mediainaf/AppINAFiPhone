@@ -13,6 +13,7 @@
 #import "JobsViewController.h"
 #import "TweetViewController.h"
 #import "SpaceProjViewController.h"
+#import "EarthProhListViewController.h"
 
 @interface ViewControllerCinque ()
 
@@ -68,7 +69,11 @@
     [self.navigationController pushViewController:viewControllerMappa animated:YES];
     
 }
-- (IBAction)openEarth:(id)sender {
+- (IBAction)openEarth:(id)sender
+{
+    EarthProhListViewController * e = [[EarthProhListViewController alloc] initWithNibName:@"EarthProhListViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:e animated:YES];
 }
 
 - (IBAction)openSpace:(id)sender
@@ -78,8 +83,7 @@
     [self.navigationController pushViewController:s animated:YES];
 }
 
-- (IBAction)openWorks:(id)sender {
-}
+
 
 - (IBAction)apriJobs:(id)sender
 {

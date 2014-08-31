@@ -23,9 +23,50 @@
     }
     return self;
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSData * response = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://app.media.inaf.it/GetAbout.php"]];
+    
+    if (response)
+    {
+        NSArray * jsonArray;
+        
+        NSError *e = nil;
+        jsonArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error: &e];
+        
+        
+        for(NSDictionary * d in jsonArray)
+        {
+            
+            
+            NSString *info = [d valueForKey:@"credits"];
+            
+            NSLog(@"%@",info);
+            
+            self.textView.text = [NSString stringWithFormat:@"%@ \n\nVersione 1.0.0",info];
+            
+        }
+        
+        
+        
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Internet Connection Error" message:@"Change internet settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    
+    
+}
 - (void)viewDidLoad
 {
+    UIDevice * device = [UIDevice currentDevice];
+    
+    if( [device.systemVersion hasPrefix:@"6"])
+    {
+        self.navBar.barStyle = UIBarStyleBlackOpaque;
+        
+    }
     
     
     [super viewDidLoad];

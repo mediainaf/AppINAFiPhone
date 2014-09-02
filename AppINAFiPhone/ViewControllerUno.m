@@ -861,9 +861,9 @@ finish:
                     
                     int number = [elements count];
                     
-                    NSString * url = [NSString stringWithFormat:@"http://app.media.inaf.it/GetMediaImage.php?sourceYear=%@&sourceMonth=%@&sourceName=%@&width=80&height=80",[elements objectAtIndex:number-3],[elements objectAtIndex:number-2],[elements objectAtIndex:number-1]];
+                    NSString * url = [NSString stringWithFormat:@"http://app.media.inaf.it/GetMediaImage.php?sourceYear=%@&sourceMonth=%@&sourceName=%@&width=100&height=100",[elements objectAtIndex:number-3],[elements objectAtIndex:number-2],[elements objectAtIndex:number-1]];
                     
-                    //  NSLog(@"%@",url);
+                      NSLog(@"%@",url);
                     
                     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
                     

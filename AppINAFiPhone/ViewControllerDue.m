@@ -441,12 +441,12 @@ finish:
         
         segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
         
-        segmentedControl.frame = CGRectMake(10, 145, 300, 30);
+        segmentedControl.frame = CGRectMake(10, 165, 300, 30);
         
         [actionSheet addSubview:segmentedControl];
 
         
-        pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,154, 0, 0)];
+        pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,204, 0, 0)];
         
         pickerView.delegate=self;
         pickerView.showsSelectionIndicator=YES;
@@ -467,13 +467,13 @@ finish:
         
         [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
         segmentedControl.selectedSegmentIndex = segmentSelected;
-
+        [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
         
         [actionSheet addSubview:pickerView];
         
         [actionSheet showFromTabBar:self.tabBarController.tabBar ];
         
-        [actionSheet setBounds:CGRectMake(0, 0, 320, 600)];
+        [actionSheet setBounds:CGRectMake(0, 0, 320, 700)];
     }
     
     /*
@@ -917,7 +917,7 @@ finish:
     [bottone setImage:iconaFiltri forState:UIControlStateNormal];
     
     
-    [bottone setTitle:@" Cerca" forState:UIControlStateNormal];
+    [bottone setTitle:@" Filtri" forState:UIControlStateNormal];
     
     
     UIDevice *device = [UIDevice currentDevice];

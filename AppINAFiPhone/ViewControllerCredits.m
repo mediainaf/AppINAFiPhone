@@ -43,7 +43,7 @@
             
             NSLog(@"%@",info);
             
-            self.textView.text = [NSString stringWithFormat:@"%@ \n\nVersione 1.0.0",info];
+            self.textView.text = [NSString stringWithFormat:@"%@ \n\nVersione 1.0.1",info];
             
         }
         

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewControllerUno : UIViewController <UITableViewDelegate,UITableViewDataSource,NSXMLParserDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>
+@interface ViewControllerUno : UIViewController <UITableViewDelegate,UITableViewDataSource,NSXMLParserDelegate,UITabBarControllerDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *logoInaf;

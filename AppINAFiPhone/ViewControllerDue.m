@@ -917,7 +917,7 @@ finish:
     [bottone setImage:iconaFiltri forState:UIControlStateNormal];
     
     
-    [bottone setTitle:@" Filtri" forState:UIControlStateNormal];
+    [bottone setTitle:@" Cerca" forState:UIControlStateNormal];
     
     
     UIDevice *device = [UIDevice currentDevice];
@@ -1115,16 +1115,21 @@ finish:
 {
     NSLog(@"deselect");
     
-    NSString *identifier = [NSString stringWithFormat:@"Cell%ld" ,
-                            (long)indexPath.row];
+    if([news count]>0)
+    {
     
-   
-    DetailNewsViewController * d = [[DetailNewsViewController alloc] initWithNibName:@"DetailNewsViewController" bundle:nil];
-    
-    d.news = [news objectAtIndex:indexPath.row];
-    
-    [self.navigationController pushViewController:d animated:YES];
-    
+        NSString *identifier = [NSString stringWithFormat:@"Cell%ld" ,
+                                (long)indexPath.row];
+        
+       
+        DetailNewsViewController * d = [[DetailNewsViewController alloc] initWithNibName:@"DetailNewsViewController" bundle:nil];
+        
+        d.news = [news objectAtIndex:indexPath.row];
+        
+        [self.navigationController pushViewController:d animated:YES];
+        
+     
+    }
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 

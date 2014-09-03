@@ -254,16 +254,19 @@ NSArray * titoli;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InternetNewsViewController * internet = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
     
-    AllSatellite * s =[satellites objectAtIndex:indexPath.row];
+    if([satellites count]>0)
+    {
+        InternetNewsViewController * internet = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
+        
+        AllSatellite * s =[satellites objectAtIndex:indexPath.row];
+        
+        internet.link = [NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/",s.tag];
+        
+        [self.navigationController pushViewController:internet animated:YES];
+        
     
-    internet.link = [NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/",s.tag];
-    
-    [self.navigationController pushViewController:internet animated:YES];
-    
-    
-    
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     

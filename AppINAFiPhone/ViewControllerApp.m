@@ -222,6 +222,8 @@
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    NSLog(@"%d",buttonIndex);
+    
     if(buttonIndex ==1)
     {
         
@@ -262,19 +264,16 @@
      
      [alert show];
      */
-    row=indexPath.row;
     
+    if([apps count] >0)
+    {
+        row=indexPath.row;
+        
+        UIActionSheet * action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Cancel" otherButtonTitles:@"Open Info",@"Download App",nil, nil];
+        
+        [action showFromTabBar:self.tabBarController.tabBar];
     
-    
-    UIActionSheet * action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Cancel" otherButtonTitles:@"Open Info",@"Download App",nil, nil];
-    
-    [action showInView:self.view];
-    
-    
-    
-    
-    
-    
+    }
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }

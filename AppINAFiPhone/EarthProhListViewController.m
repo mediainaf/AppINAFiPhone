@@ -269,31 +269,30 @@ NSArray * titoli;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if(indexPath.row == 0)
+    if([telescopes count]>0)
     {
-        WebCamViewController * webcam = [[WebCamViewController alloc] initWithNibName:@"WebCamViewController" bundle:nil];
+        if(indexPath.row == 0)
+        {
+            WebCamViewController * webcam = [[WebCamViewController alloc] initWithNibName:@"WebCamViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:webcam animated:YES];
+            
+                   }
+        else
+        {
+            InternetNewsViewController * internet = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
+            
+            Telescope * s =[telescopes objectAtIndex:indexPath.row-1];
+            
+            internet.link = [NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/",s.tag];
+            
+            [self.navigationController pushViewController:internet animated:YES];
+            
         
-        [self.navigationController pushViewController:webcam animated:YES];
-        
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }
     }
-    else
-    {
-        InternetNewsViewController * internet = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
-        
-        Telescope * s =[telescopes objectAtIndex:indexPath.row-1];
-        
-        internet.link = [NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/",s.tag];
-        
-        [self.navigationController pushViewController:internet animated:YES];
-        
-        
-        
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-    }
-    
     
     
     

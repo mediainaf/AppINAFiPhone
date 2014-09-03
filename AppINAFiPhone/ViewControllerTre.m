@@ -607,23 +607,27 @@ finish:
     return cell;
 }
 
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"deselect");
     
-    
-    DetailEventsViewController * detail = [[DetailEventsViewController alloc] initWithNibName:@"DetailEventsViewController" bundle:nil];
-    
-    detail.news = [news objectAtIndex:indexPath.row];
-    
-    [self.navigationController pushViewController:detail animated:YES];
+    if([news count]>0)
+    {
+        DetailEventsViewController * detail = [[DetailEventsViewController alloc] initWithNibName:@"DetailEventsViewController" bundle:nil];
+        
+        detail.news = [news objectAtIndex:indexPath.row];
+        
+        [self.navigationController pushViewController:detail animated:YES];
 
-    
+        
+       
+            
+    }
     
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
+
 }
-
-
 
 
 

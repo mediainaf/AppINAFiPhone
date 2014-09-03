@@ -120,6 +120,8 @@
 - (void)viewDidLoad
 {
     
+    self.tabBarController.delegate=self;
+    
     load = 0;
     news = [[NSMutableArray alloc] init];
     images = [[NSMutableDictionary alloc] init];
@@ -797,8 +799,15 @@ finish:
     
     return 3;
 }
-
-
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    
+    if([tabBarController selectedIndex]!=0)
+    {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+    }
+     NSLog(@"select");
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -1000,14 +1009,19 @@ finish:
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    DetailNewsViewController * detailNewsViewController = [[DetailNewsViewController alloc] initWithNibName:@"DetailNewsViewController" bundle:nil];
-    
-    detailNewsViewController.news=[news objectAtIndex:indexPath.row];
+    if([news count]>0)
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    [self.navigationController pushViewController:detailNewsViewController animated:YES];
-    
+        DetailNewsViewController * detailNewsViewController = [[DetailNewsViewController alloc] initWithNibName:@"DetailNewsViewController" bundle:nil];
+        
+        detailNewsViewController.news=[news objectAtIndex:indexPath.row];
+
+        [self.navigationController pushViewController:detailNewsViewController animated:YES];
+    }
 }
 
 

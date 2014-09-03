@@ -304,16 +304,19 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = [NSString stringWithFormat:@"Cell%d" ,
-                            indexPath.row];
     
-    DettagliVideoViewController * detail = [[DettagliVideoViewController alloc] initWithNibName:@"DettagliVideoViewController" bundle:nil];
-    
-    detail.video = [video objectAtIndex:indexPath.row];
-    detail.thumbnail = [cachedImages objectForKey:identifier];
-    
-    [self.navigationController pushViewController:detail animated:YES];
-    
+    if([video count]>0)
+    {
+        NSString *identifier = [NSString stringWithFormat:@"Cell%d" ,
+                                indexPath.row];
+        
+        DettagliVideoViewController * detail = [[DettagliVideoViewController alloc] initWithNibName:@"DettagliVideoViewController" bundle:nil];
+        
+        detail.video = [video objectAtIndex:indexPath.row];
+        detail.thumbnail = [cachedImages objectForKey:identifier];
+        
+        [self.navigationController pushViewController:detail animated:YES];
+    }
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
 }

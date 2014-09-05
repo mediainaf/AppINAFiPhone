@@ -974,6 +974,7 @@ finish:
         //sNSLog(@"%lu",(unsigned long)[notizie count]);
         cell.date.text = n.date;
         cell.summary.text = n.summary;
+        cell.textLabel.text=n.summary;
         cell.author.text = [NSString stringWithFormat:@"di %@",n.author];
         // [cell.immaginePreview loadImageAtURL:[NSURL URLWithString:[[notizie objectAtIndex:indexPath.row] linkImageSmall]]];
         

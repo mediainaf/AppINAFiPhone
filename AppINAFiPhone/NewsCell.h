@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 
+@property (strong, nonatomic) IBOutlet UILabel *textLabel;
 
 @end

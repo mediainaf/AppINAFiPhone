@@ -54,10 +54,12 @@
     NSLog(@"%@",self.link);
     NSURL * urlNews = [NSURL URLWithString:self.link];
     
-    NSMutableURLRequest * newsUrlRequest = [NSMutableURLRequest requestWithURL:urlNews];
-
-    [newsUrlRequest setValue:@"Mac" forHTTPHeaderField:@"User_Agent"];
-    [self.webView loadRequest:newsUrlRequest];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlNews
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+   // [request setValue:@"Mozilla/5.0 AppleWebKit/537.11  Chrome/23.0.1271.6 Safari/537.11" forHTTPHeaderField:@"User-Agent"];
+    [self.webView loadRequest:request];
     
     self.webView.scalesPageToFit=YES;
 

@@ -222,17 +222,22 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    InternetNewsViewController * detailJobsViewController = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
-    
-    Job * j = [jobs objectAtIndex:indexPath.row];
-    
-    detailJobsViewController.link = j.link;
-    
-    [self.navigationController pushViewController:detailJobsViewController animated:YES];
-}
+    if([jobs count]>0)
+    {
+        InternetNewsViewController * detailJobsViewController = [[InternetNewsViewController alloc] initWithNibName:@"InternetNewsViewController" bundle:nil];
+        
+        Job * j = [jobs objectAtIndex:indexPath.row];
+        
+        detailJobsViewController.link = j.link;
+        
+        
+        [self.navigationController pushViewController:detailJobsViewController animated:YES];
 
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

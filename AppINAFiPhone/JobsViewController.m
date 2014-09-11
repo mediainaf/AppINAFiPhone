@@ -166,7 +166,7 @@
     jobs = [[NSMutableArray alloc] init];
     
     self.sfondoView.image = [UIImage imageNamed:@"Assets/galileo6.jpg"];
-    self.sfondoView.alpha = 0.7;
+    self.sfondoView.alpha = 0.5;
     
     self.tableView.rowHeight = 200;
     

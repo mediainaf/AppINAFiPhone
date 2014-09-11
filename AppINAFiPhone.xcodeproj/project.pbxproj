@@ -602,7 +602,7 @@
 				ORGANIZATIONNAME = "Nicolo' Parmiggiani";
 				TargetAttributes = {
 					03C57D3A19AB3DAD00978837 = {
-						DevelopmentTeam = 2T3SDT2U5S;
+						DevelopmentTeam = JE4R383E8J;
 					};
 					03C57D5B19AB3DAD00978837 = {
 						TestTargetID = 03C57D3A19AB3DAD00978837;

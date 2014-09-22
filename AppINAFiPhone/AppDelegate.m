@@ -40,7 +40,7 @@
     UIDevice *device = [UIDevice currentDevice];
     
     
-    if([device.systemVersion hasPrefix:@"7"])
+    if([device.systemVersion hasPrefix:@"7"] || [device.systemVersion hasPrefix:@"8"] || [device.systemVersion hasPrefix:@"9"])
     {
         // NSLog(@"%@",device.systemVersion);
         navUno.navigationBar.translucent = NO;
@@ -66,7 +66,7 @@
         
         
     }
-    else
+    else if([device.systemVersion hasPrefix:@"6"])
     {
         
         [navUno.navigationBar setBarStyle:UIBarStyleBlackOpaque];

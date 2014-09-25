@@ -30,20 +30,20 @@
 -(void) calcolaScroll
 {
     
-    CGRect rect      = self.description.frame;
-    rect.size.height = [self getContentSize:self.description].height;
-    self.description.frame   = rect;
+    CGRect rect      = self.descriptionText.frame;
+    rect.size.height = [self getContentSize:self.descriptionText].height;
+    self.descriptionText.frame   = rect;
     
-    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.description.frame.origin.y+self.description.frame.size.height+50)];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.descriptionText.frame.origin.y+self.descriptionText.frame.size.height+50)];
     
     
     rect = self.date.frame;
-    rect.origin.y = self.description.frame.origin.y+20+self.description.frame.size.height ;
+    rect.origin.y = self.descriptionText.frame.origin.y+20+self.descriptionText.frame.size.height ;
     self.date.frame = rect;
     
     rect = self.numberOfView.frame;
     
-    rect.origin.y = self.description.frame.origin.y+20+self.description.frame.size.height ;
+    rect.origin.y = self.descriptionText.frame.origin.y+20+self.descriptionText.frame.size.height ;
     self.numberOfView.frame = rect;
     
 
@@ -90,8 +90,8 @@
     v=self.video;
     
     self.titolo.text= v.title;
-    self.description.text = v.summary;
-    [self.description setFont:[UIFont fontWithName:@"Helvetica" size:16.0f]];
+    self.descriptionText.text = v.summary;
+    [self.descriptionText setFont:[UIFont fontWithName:@"Helvetica" size:16.0f]];
     self.date.text = v.data;
     self.numberOfView.text = [NSString stringWithFormat:@"%@ visualizzazioni", v.numberOfView];
     

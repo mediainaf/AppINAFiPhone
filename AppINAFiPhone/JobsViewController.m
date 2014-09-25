@@ -89,7 +89,7 @@
         NSString  * desc = [description stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         
         
-        j.description = desc ;
+        j.descriptionText = desc ;
         
         
         NSString * link2  = link;

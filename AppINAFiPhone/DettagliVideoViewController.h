@@ -15,7 +15,7 @@
 @property (strong,nonatomic) Video * video;
 @property (strong, nonatomic) IBOutlet UILabel *titolo;
 
-@property (strong, nonatomic) IBOutlet UITextView *description;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionText;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfView;
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong,nonatomic) UIImage * thumbnail;

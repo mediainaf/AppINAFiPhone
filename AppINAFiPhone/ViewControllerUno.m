@@ -581,21 +581,33 @@
          poi inserirlo nell'array "elencoFeed" */
         
         
-        ParserImages * parserImages = [[ParserImages alloc] init];
+       
         ParserThumbnail * parserThumbnail = [[ParserThumbnail alloc] init];
         
-        NSString * linkThumbnail = [parserThumbnail parse:summary];
+        
+        //NSString * linkThumbnail = [parserThumbnail parse:summary];
         
         // NSString * imageLinkBig = [parserThree parse:cdata];
         
         // NSLog(@"img piccola %@ ",imageLinkSmall );
         //  NSLog(@"content %@ ",content );
         
-        NSArray * imagesAndVideo = [[NSArray alloc] init];
-        
-        imagesAndVideo = [parserImages parseText:content];
         
         
+      
+        
+       
+        dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(reentrantAvoidanceQueue, ^{
+            ParserImages * parserImages = [[ParserImages alloc] init];
+           NSArray * imagesAndVideo = [[NSArray alloc] init];
+            imagesAndVideo = [parserImages parseText:content];
+            
+            [self addnews:imagesAndVideo];
+        });
+        dispatch_sync(reentrantAvoidanceQueue, ^{ });
+        
+        /*
         NSMutableArray * imagesArray = [[NSMutableArray alloc] init];
         imagesArray = [imagesAndVideo objectAtIndex:0];
         NSMutableArray * videos = [[NSMutableArray alloc] init];
@@ -608,7 +620,7 @@
         n.title = title;
         n.images = imagesArray;
         n.videos = videos;
-        n.thumbnail = linkThumbnail;
+        //n.thumbnail = linkThumbnail;
         // news.linkImageBig = imageLinkBig;
         n.author = author;
         n.link = link;
@@ -654,7 +666,7 @@
         
         [news addObject:n];
         
-        
+        */
         
         //
         // NSLog(@"autore %@",imageLinkBig);
@@ -667,7 +679,69 @@
     }
     
 }
+-(void) addnews : (NSArray *) imagesAndVideo
+{
+    NSMutableArray * imagesArray = [[NSMutableArray alloc] init];
+    imagesArray = [imagesAndVideo objectAtIndex:0];
+    NSMutableArray * videos = [[NSMutableArray alloc] init];
+    videos = [imagesAndVideo objectAtIndex:1];
+    
+    // NSLog(@"url %d titolo %@", [imagesArray count],title);
+    
+    News * n = [[News alloc] init];
+    // manca autore data link
+    n.title = title;
+    n.images = imagesArray;
+    n.videos = videos;
+    //n.thumbnail = linkThumbnail;
+    // news.linkImageBig = imageLinkBig;
+    n.author = author;
+    n.link = link;
+    
+    NSArray * elementiData  = [date componentsSeparatedByString:@" "];
+    
+    NSString * day = [elementiData objectAtIndex:1];
+    NSString * DM = [day stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:2]]];
+    NSString * DMY = [DM stringByAppendingString:[NSString stringWithFormat:@" %@",[elementiData objectAtIndex:3]]];
+    
+    
+    
+    //     NSLog(@"data %@",DMY);
+    
+    n.date = DMY;
+    
+    NSArray *components = [summary componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    
+    NSMutableArray *componentsToKeep = [NSMutableArray array];
+    for (int i = 0; i < [components count]; i = i + 2) {
+        [componentsToKeep addObject:[components objectAtIndex:i]];
+    }
+    
+    n.summary = [componentsToKeep componentsJoinedByString:@""];
+    
+    
+    
+    components = [content componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    
+    componentsToKeep = [NSMutableArray array];
+    
+    for (int i = 0; i < [components count]; i = i + 2) {
+        [componentsToKeep addObject:[components objectAtIndex:i]];
+    }
+    
+    
+    NSMutableString * finalContent = [[NSMutableString alloc] initWithString:[componentsToKeep componentsJoinedByString:@""]];
+    [finalContent replaceOccurrencesOfString:@"&nbsp" withString:@" " options:NSLiteralSearch range:NSMakeRange(0, [finalContent length])];
+    
+    
+    
+    n.content = [self stringByDecodingXMLEntities:finalContent];
+    
+    [news addObject:n];
+    
+    
 
+}
 
 -(void) loadData
 {
@@ -681,6 +755,7 @@
         [alert show];
     }
     
+    
     parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:url]];
     
     [parser setDelegate:self];
@@ -693,6 +768,8 @@
     // avviamo il parsing del feed RSS
     [parser parse];
     
+    
+   
     [self.tableView reloadData];
     
 }

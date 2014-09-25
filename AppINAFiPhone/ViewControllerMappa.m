@@ -300,7 +300,7 @@
     
     UIDevice * device = [UIDevice currentDevice];
     
-    if([device.systemVersion hasPrefix:@"7"])
+    if([device.systemVersion hasPrefix:@"7"] || [device.systemVersion hasPrefix:@"8"] || [device.systemVersion hasPrefix:@"9"] )
     {
         
         if(![view.annotation isKindOfClass:[MKUserLocation class]]) {
@@ -345,7 +345,7 @@
             
             
             UIButton *button4 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            button4.frame = CGRectMake(118, 175, 22, 22);
+            button4.frame = CGRectMake(129, 175, 22, 22);
             // [button4 setTitle:@"Info" forState:UIControlStateNormal];
             [button4 addTarget:self action:@selector(openInstitute:) forControlEvents:UIControlEventTouchUpInside];
             [calloutView addSubview:button4];

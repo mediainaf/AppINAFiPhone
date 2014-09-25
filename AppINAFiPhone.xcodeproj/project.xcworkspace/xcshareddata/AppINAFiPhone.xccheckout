@@ -10,29 +10,29 @@
 	<string>AppINAFiPhone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C882026C-59B4-48B9-A3C3-8832AD030348</key>
+		<key>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</key>
 		<string>https://github.com/mediainaf/AppINAFiPhone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AppINAFiPhone.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C882026C-59B4-48B9-A3C3-8832AD030348</key>
+		<key>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mediainaf/AppINAFiPhone.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C882026C-59B4-48B9-A3C3-8832AD030348</string>
+	<string>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C882026C-59B4-48B9-A3C3-8832AD030348</string>
+			<string>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AppINAFiPhone</string>
 		</dict>

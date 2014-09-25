@@ -446,7 +446,7 @@ void getLatLong(double *lat, double *lon)
         
         [actionSheet showFromTabBar:self.tabBarController.tabBar ];
         
-        [actionSheet setBounds:CGRectMake(0, 0, 320, 600)];
+        [actionSheet setFrame:CGRectMake(0, 0, 320, 600)];
     }
 
     

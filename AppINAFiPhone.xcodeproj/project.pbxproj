@@ -95,6 +95,8 @@
 		03CBA68A19B0D37B00763EEA /* SpaceProjViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA68819B0D37B00763EEA /* SpaceProjViewController.xib */; };
 		03CBA68E19B0D42900763EEA /* MapOrbitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBA68C19B0D42900763EEA /* MapOrbitViewController.m */; };
 		03CBA68F19B0D42900763EEA /* MapOrbitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03CBA68D19B0D42900763EEA /* MapOrbitViewController.xib */; };
+		03EB46FF19D55B2E00533B2A /* FiltriViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB46FD19D55B2E00533B2A /* FiltriViewController.m */; };
+		03EB470019D55B2E00533B2A /* FiltriViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EB46FE19D55B2E00533B2A /* FiltriViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +244,9 @@
 		03CBA68B19B0D42900763EEA /* MapOrbitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapOrbitViewController.h; sourceTree = "<group>"; };
 		03CBA68C19B0D42900763EEA /* MapOrbitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapOrbitViewController.m; sourceTree = "<group>"; };
 		03CBA68D19B0D42900763EEA /* MapOrbitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapOrbitViewController.xib; sourceTree = "<group>"; };
+		03EB46FC19D55B2E00533B2A /* FiltriViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltriViewController.h; sourceTree = "<group>"; };
+		03EB46FD19D55B2E00533B2A /* FiltriViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltriViewController.m; sourceTree = "<group>"; };
+		03EB46FE19D55B2E00533B2A /* FiltriViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltriViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +410,9 @@
 				03C57DB019AB3F0D00978837 /* ViewControllerDue.h */,
 				03C57DB119AB3F0D00978837 /* ViewControllerDue.m */,
 				03C57DB219AB3F0D00978837 /* ViewControllerDue.xib */,
+				03EB46FC19D55B2E00533B2A /* FiltriViewController.h */,
+				03EB46FD19D55B2E00533B2A /* FiltriViewController.m */,
+				03EB46FE19D55B2E00533B2A /* FiltriViewController.xib */,
 			);
 			name = due;
 			sourceTree = "<group>";
@@ -666,6 +674,7 @@
 				03C57DD619AB3F0D00978837 /* DetailEventsViewController.xib in Resources */,
 				03C57DD119AB3F0D00978837 /* AppTableCell.xib in Resources */,
 				03C57DEE19AB3F0D00978837 /* ViewControllerDue.xib in Resources */,
+				03EB470019D55B2E00533B2A /* FiltriViewController.xib in Resources */,
 				03CBA68A19B0D37B00763EEA /* SpaceProjViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +734,7 @@
 				033A6A1819B1FC890086D22C /* WebCamViewController.m in Sources */,
 				03C57DF119AB3F0D00978837 /* ViewControllerUno.m in Sources */,
 				039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */,
+				03EB46FF19D55B2E00533B2A /* FiltriViewController.m in Sources */,
 				03C57DDA19AB3F0D00978837 /* ViewControllerCredits.m in Sources */,
 				039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */,
 				03C57DE019AB3F0D00978837 /* News.m in Sources */,

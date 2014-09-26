@@ -14,9 +14,11 @@
 #import "Parser.h"
 #import "ParserImages.h"
 #import "ParserThumbnail.h"
+#import "FiltriViewController.h"
 
 @interface ViewControllerDue ()
 {
+    UIView* timeBackgroundView;
     UIRefreshControl * refreshControl;
     NSString * tag;
     NSArray * telescopes;
@@ -447,49 +449,174 @@ finish:
     }
     
 }
+-(void) cambiaFiltro
+{
+    
+    [timeBackgroundView removeFromSuperview];
+    popAperto =0;
+    page=1;
+    self.loadingView.hidden=NO;
+    
+    double delayInSeconds = 0.2;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+        if([segmentedControl selectedSegmentIndex] == 0)
+        {
+            if(pickerRowSelected == 0)
+                [self loadData:@"http://www.media.inaf.it/feed/"];
+            else
+                [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[institutesTag objectAtIndex:pickerRowSelected]]];
+        }
+        if([segmentedControl selectedSegmentIndex] == 1)
+        {
+            if(pickerRowSelected == 0)
+                [self loadData:@"http://www.media.inaf.it/feed/"];
+            else
+                [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[telescopesTag objectAtIndex:pickerRowSelected]]];
+        }
+        if([segmentedControl selectedSegmentIndex] == 2)
+        {
+            if(pickerRowSelected == 0)
+                [self loadData:@"http://www.media.inaf.it/feed/"];
+            else
+                [self loadData:[NSString stringWithFormat:@"http://www.media.inaf.it/tag/%@/feed/",[satellitesTag objectAtIndex:pickerRowSelected]]];
+        }
+        
+        
+    });
+}
+-(void) cancelFiltri
+{
+    [timeBackgroundView removeFromSuperview];
+    popAperto =0;
+}
 -(void) apriFiltri
 {
-    if(popAperto == 0)
+    if(popAperto == 1)
     {
+        NSLog(@"chiudi");
+        //popAperto =0;
+        [self cancelFiltri];
+        //[timeBackgroundView removeFromSuperview];
+    }
+    else if(popAperto == 0)
+    {
+        
         popAperto = 1;
-        
-        UIActionSheet*  actionSheet =[[UIActionSheet alloc] initWithTitle:@"Seleziona filtro" delegate:self cancelButtonTitle:@"Filtra" destructiveButtonTitle:@"Annulla" otherButtonTitles: nil ];
-        
-        segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
-        
-        segmentedControl.frame = CGRectMake(10, 165, 300, 30);
-        
-        [actionSheet addSubview:segmentedControl];
+        [self.view addSubview:timeBackgroundView];
+
+
+//        timeBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-350, 320, 350)];
+//       
+//        
+//        [timeBackgroundView setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+//        
+//        
+//        UIButton * cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        
+//        [cancel setTitle:@"Cancel" forState:UIControlStateNormal];
+//        cancel.titleLabel.font = [UIFont systemFontOfSize:18.0];
+//        cancel.titleLabel.textColor = [UIColor redColor];
+//
+//    
+//        [cancel addTarget:self action:@selector(cancelFiltri) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        [cancel setFrame:CGRectMake(130, 3, 60, 40)];
+//        
+//        [timeBackgroundView addSubview:cancel];
+//        
+//        UIButton * filtra = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        
+//        [filtra setTitle:@"Filtra" forState:UIControlStateNormal];
+//        filtra.titleLabel.font = [UIFont systemFontOfSize:18.0];
+//        filtra.titleLabel.textColor = [UIColor redColor];
+//        
+//        
+//        [filtra addTarget:self action:@selector(cambiaFiltro) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        [filtra setFrame:CGRectMake(130, 46, 60, 40)];
+//        
+//        [timeBackgroundView addSubview:filtra];
+//
+//        
+//        
+//        segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
+//        
+//        segmentedControl.frame = CGRectMake(10, 100, 300, 30);
+//        
+//        
+//        
+//    
+//            pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,140, 0, 0)];
+//    
+//            pickerView.delegate=self;
+//            pickerView.showsSelectionIndicator=YES;
+//    
+//            UIDevice *device = [UIDevice currentDevice];
+//    
+//    
+//            if([device.systemVersion hasPrefix:@"6"])
+//            {
+//                segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//            }
+//            else
+//            {
+//                segmentedControl.tintColor = [UIColor blackColor];
+//            }
+//    
+//    
+//    
+//            [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
+//            segmentedControl.selectedSegmentIndex = segmentSelected;
+//            [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
+//            
+//
+//        
+//        [timeBackgroundView addSubview:segmentedControl];
+//        [timeBackgroundView addSubview:pickerView];
+        //           [self.view addSubview:timeBackgroundView];
 
         
-        pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,204, 0, 0)];
-        
-        pickerView.delegate=self;
-        pickerView.showsSelectionIndicator=YES;
-        
-        UIDevice *device = [UIDevice currentDevice];
-        
-        
-        if([device.systemVersion hasPrefix:@"6"])
-        {
-            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
-        }
-        else
-        {
-            segmentedControl.tintColor = [UIColor blackColor];
-        }
-        
-        
-        
-        [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
-        segmentedControl.selectedSegmentIndex = segmentSelected;
-        [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
-        
-        [actionSheet addSubview:pickerView];
-        
-        [actionSheet showFromTabBar:self.tabBarController.tabBar ];
-        
-        [actionSheet setBounds:CGRectMake(0, 0, 320, 700)];
+//        popAperto = 1;
+//        
+//        UIActionSheet*  actionSheet =[[UIActionSheet alloc] initWithTitle:@"Seleziona filtro" delegate:self cancelButtonTitle:@"Filtra" destructiveButtonTitle:@"Annulla" otherButtonTitles: nil ];
+//        
+//        segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
+//        
+//        segmentedControl.frame = CGRectMake(10, 165, 300, 30);
+//        
+//        [actionSheet addSubview:segmentedControl];
+//
+//        
+//        pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,204, 0, 0)];
+//        
+//        pickerView.delegate=self;
+//        pickerView.showsSelectionIndicator=YES;
+//        
+//        UIDevice *device = [UIDevice currentDevice];
+//        
+//        
+//        if([device.systemVersion hasPrefix:@"6"])
+//        {
+//            segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//        }
+//        else
+//        {
+//            segmentedControl.tintColor = [UIColor blackColor];
+//        }
+//        
+//        
+//        
+//        [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
+//        segmentedControl.selectedSegmentIndex = segmentSelected;
+//        [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
+//        
+//        [actionSheet addSubview:pickerView];
+//        
+//        [actionSheet showFromTabBar:self.tabBarController.tabBar ];
+//        
+//        [actionSheet setBounds:CGRectMake(0, 0, 320, 700)];
     }
     
     /*
@@ -923,6 +1050,77 @@ finish:
                      @"vst",
                      nil];
     
+    
+    timeBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-350, 320, 350)];
+    
+    
+    [timeBackgroundView setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+    
+    
+    UIButton * cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [cancel setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancel setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+      cancel.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    //cancel.titleLabel.text=@"Cancel";
+    
+    [cancel addTarget:self action:@selector(cancelFiltri) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cancel setFrame:CGRectMake(130, 3, 60, 40)];
+    
+    [timeBackgroundView addSubview:cancel];
+    
+    UIButton * filtra = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [filtra setTitle:@"Filtra" forState:UIControlStateNormal];
+    filtra.titleLabel.font = [UIFont systemFontOfSize:18.0];
+
+    
+    
+    [filtra addTarget:self action:@selector(cambiaFiltro) forControlEvents:UIControlEventTouchUpInside];
+    
+    [filtra setFrame:CGRectMake(130, 46, 60, 40)];
+    
+    [timeBackgroundView addSubview:filtra];
+    
+    
+    
+    segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Sedi",@"Terra",@"Spazio", nil]];
+    
+    segmentedControl.frame = CGRectMake(10, 100, 300, 30);
+    
+    
+    
+    
+    pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,140, 0, 0)];
+    
+    pickerView.delegate=self;
+    pickerView.showsSelectionIndicator=YES;
+    
+    UIDevice *device = [UIDevice currentDevice];
+    
+    
+    if([device.systemVersion hasPrefix:@"6"])
+    {
+        segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    }
+    else
+    {
+        segmentedControl.tintColor = [UIColor blackColor];
+    }
+    
+    
+    
+    [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents: UIControlEventValueChanged];
+    segmentedControl.selectedSegmentIndex = segmentSelected;
+    [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
+    
+    
+    
+    [timeBackgroundView addSubview:segmentedControl];
+    [timeBackgroundView addSubview:pickerView];
+
+    
     UIImage * iconaFiltri = [UIImage imageNamed:@"Assets/iconaFiltri.png"];
     
     
@@ -935,8 +1133,6 @@ finish:
     
     [bottone setTitle:@" Cerca" forState:UIControlStateNormal];
     
-    
-    UIDevice *device = [UIDevice currentDevice];
     
     
     if([device.systemVersion hasPrefix:@"6"])

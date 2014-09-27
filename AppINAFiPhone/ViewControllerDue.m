@@ -14,7 +14,7 @@
 #import "Parser.h"
 #import "ParserImages.h"
 #import "ParserThumbnail.h"
-#import "FiltriViewController.h"
+
 
 @interface ViewControllerDue ()
 {
@@ -1120,6 +1120,7 @@ finish:
     [timeBackgroundView addSubview:segmentedControl];
     [timeBackgroundView addSubview:pickerView];
 
+    NSLog(@"%f",self.view.frame.size.height);
     
     UIImage * iconaFiltri = [UIImage imageNamed:@"Assets/iconaFiltri.png"];
     

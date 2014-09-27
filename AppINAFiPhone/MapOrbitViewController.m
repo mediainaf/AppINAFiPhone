@@ -16,7 +16,7 @@
 @interface MapOrbitViewController ()
 {
     int followSatellite;
-    
+    UIView * timeBackgroundView;
     NSMutableArray * satellites;
     NSMutableArray * annotations;
     
@@ -393,6 +393,51 @@ void getLatLong(double *lat, double *lon)
     
     
     followSatellite = 0;
+    timeBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-300, 320, 300)];
+    
+    
+    NSLog(@"%f",self.view.frame.size.height);
+    
+    [timeBackgroundView setBackgroundColor:[UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1.0]];
+    
+    
+    UIButton * cancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [cancel setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancel setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    cancel.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    //cancel.titleLabel.text=@"Cancel";
+    
+    [cancel addTarget:self action:@selector(cercaSat) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cancel setFrame:CGRectMake(130, 3, 60, 40)];
+    
+    [timeBackgroundView addSubview:cancel];
+    
+    UIButton * cerca = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    [cerca setTitle:@"Cerca" forState:UIControlStateNormal];
+    cerca.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    
+    
+    
+    [cerca addTarget:self action:@selector(cercaSat) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cerca setFrame:CGRectMake(130, 46, 60, 40)];
+    
+    [timeBackgroundView addSubview:cerca];
+    
+    
+    
+    pickerView=[[UIPickerView alloc]initWithFrame:CGRectMake(0,90, 0, 0)];
+    
+    pickerView.delegate=self;
+    pickerView.showsSelectionIndicator=YES;
+    
+    [pickerView selectRow:pickerRowSelected inComponent:0 animated:YES];
+    
+    [timeBackgroundView addSubview:pickerView];
+
     //[self posizionaRegione];
     
     
@@ -423,9 +468,43 @@ void getLatLong(double *lat, double *lon)
     }
     
 }
+-(void) cercaSat
+{
+    [timeBackgroundView removeFromSuperview];
+    popAperto = 0;
+    if (pickerRowSelected !=0)
+        followSatellite=1;
+    else
+    {
+        
+        followSatellite=0;
+    }
+
+}
+-(void) cancelSat
+{
+    [timeBackgroundView removeFromSuperview];
+    popAperto =0;
+}
 -(void)  openSatellites
 {
     
+
+    if(popAperto == 1)
+    {
+        NSLog(@"chiudi");
+        //popAperto =0;
+        [self cancelSat];
+        //[timeBackgroundView removeFromSuperview];
+    }
+    else if(popAperto == 0)
+    {
+        
+        popAperto = 1;
+        [self.view addSubview:timeBackgroundView];
+    }
+
+    /*
     if(popAperto == 0)
     {
         popAperto = 1;
@@ -449,7 +528,7 @@ void getLatLong(double *lat, double *lon)
         [actionSheet setFrame:CGRectMake(0, 0, 320, 600)];
     }
 
-    
+    */
     /*
     if(!popOverController.popoverVisible)
     {

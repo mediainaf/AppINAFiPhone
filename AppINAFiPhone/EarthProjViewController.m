@@ -265,7 +265,7 @@
         UIDevice *device = [UIDevice currentDevice];
         
         
-        if([device.systemVersion hasPrefix:@"7"])
+        if(![device.systemVersion hasPrefix:@"6"])
         {
             bottone = [UIButton buttonWithType:UIButtonTypeInfoDark];
         }

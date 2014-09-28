@@ -350,7 +350,7 @@ void getLatLong(double *lat, double *lon)
     
     UIDevice * device = [UIDevice currentDevice];
     
-    if([device.systemVersion hasPrefix:@"7"])
+    if(![device.systemVersion hasPrefix:@"6"])
     {
         bottone = [UIButton buttonWithType:UIButtonTypeInfoDark];
         [bottone setImage:bottoneSatellite forState:UIControlStateNormal];

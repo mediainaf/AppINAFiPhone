@@ -29,6 +29,7 @@
 }
 -(void) calcolaScroll
 {
+    NSLog(@"%f ",self.date.frame.origin.y);
     
     CGRect rect      = self.descriptionText.frame;
     rect.size.height = [self getContentSize:self.descriptionText].height;
@@ -39,11 +40,14 @@
     
     rect = self.date.frame;
     rect.origin.y = self.descriptionText.frame.origin.y+20+self.descriptionText.frame.size.height ;
+  
+
     self.date.frame = rect;
     
     rect = self.numberOfView.frame;
     
     rect.origin.y = self.descriptionText.frame.origin.y+20+self.descriptionText.frame.size.height ;
+
     self.numberOfView.frame = rect;
     
 

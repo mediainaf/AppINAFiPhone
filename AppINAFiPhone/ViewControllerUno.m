@@ -106,7 +106,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
+   
     //  NSLog(@"%f %f",self.collectionView.frame.origin.x,self.collectionView.frame.origin.y);
     
     if(load ==0 )

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebCamViewController : UIViewController <NSXMLParserDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface WebCamViewController : UIViewController <NSXMLParserDelegate,UICollectionViewDataSource,UICollectionViewDelegate,NSURLConnectionDataDelegate,NSURLConnectionDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 

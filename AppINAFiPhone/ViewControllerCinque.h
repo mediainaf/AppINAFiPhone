@@ -9,7 +9,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerCinque : UIViewController
+@interface ViewControllerCinque : UIViewController <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *sfondoView;
 
 
@@ -35,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *buttonT;
 - (IBAction)openTweer:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) IBOutlet UIButton *bottoneMappa;
 @end

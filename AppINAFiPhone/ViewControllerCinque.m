@@ -14,9 +14,13 @@
 #import "TweetViewController.h"
 #import "SpaceProjViewController.h"
 #import "EarthProhListViewController.h"
+#import "TvViewController.h"
+#import "TrasparenzaViewController.h"
 
 @interface ViewControllerCinque ()
-
+{
+    NSArray * pulsanti;
+}
 @end
 
 @implementation ViewControllerCinque
@@ -32,6 +36,9 @@
 
 - (void)viewDidLoad
 {
+    
+    pulsanti = [NSArray arrayWithObjects:@"Apps",@"Sedi",@"Progetti da terra",@"Progetti Spaziali",@"Lavora con noi",@"Condividi tweet",@"Trasparenza",@"INAF Tv", nil];
+    
     self.title = @"More";
     self.sfondoView.image=[UIImage imageNamed:@"Assets/LBTPort2.jpg"];
     
@@ -48,7 +55,104 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 8;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell==nil)
+    {
+        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.backgroundColor = [UIColor clearColor];
+    //cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.2];
+    
+    cell.textLabel.text = [pulsanti objectAtIndex:indexPath.row];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
+    
+    return cell;
 
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            ViewControllerApp * viewControllerApp = [[ViewControllerApp alloc] initWithNibName:@"ViewControllerApp" bundle:nil];
+            
+            [self.navigationController pushViewController:viewControllerApp animated:YES];
+        }
+            break;
+        case 1:
+        {
+            ViewControllerMappa * viewControllerMappa = [[ViewControllerMappa alloc] initWithNibName:@"ViewControllerMappa" bundle:nil];
+            
+            [self.navigationController pushViewController:viewControllerMappa animated:YES];
+        }
+            break;
+        case 2:
+        {
+            EarthProhListViewController * e = [[EarthProhListViewController alloc] initWithNibName:@"EarthProhListViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:e animated:YES];
+
+        }
+            break;
+        case 3:
+        {
+            SpaceProjViewController * s = [[SpaceProjViewController alloc] initWithNibName:@"SpaceProjViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:s animated:YES];
+        
+        }
+            break;
+        case 4:
+        {
+            JobsViewController *jobsViewController = [[JobsViewController alloc] initWithNibName:@"JobsViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:jobsViewController animated:YES];
+
+        }
+            break;
+        case 5:
+        {
+            TweetViewController * tweet = [[TweetViewController alloc] initWithNibName:@"TweetViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:tweet animated:YES];
+
+            
+
+        }
+            break;
+        case 6:
+        {
+            TvViewController * tv = [[TvViewController alloc] initWithNibName:@"TvViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:tv animated:YES];
+        }
+            break;
+        case 7:
+        {
+            TrasparenzaViewController * trasparenza = [[TrasparenzaViewController alloc] initWithNibName:@"TrasparenzaViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:trasparenza animated:YES];
+        }
+            break;
+
+            
+        default:
+            break;
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -24,6 +24,8 @@
     UIRefreshControl *refreshControl;
     
 
+    NSMutableData * responseData;
+    
     int page;
    
 }
@@ -52,74 +54,73 @@
         
     }
 }
--(void) loadData
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    [self.loadingView setHidden:YES];
+    [responseData setLength:0];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
     
+ 
     
-    NSString *response1 = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/inaftv/uploads?alt=json&max-results=50"] encoding:NSUTF8StringEncoding error:nil];
-    if(!response1)
-    {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Internet Connection Error" message:@"Change internet settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    
-    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://gdata.youtube.com/feeds/api/users/inaftv/uploads?alt=json&max-results=50"]];
-    
-    NSData * response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    
-    
-    NSArray *jsonArray ;
-    if (response) {
+    NSDictionary *jsonDictionary ;
+    if (responseData) {
         
         NSError *e = nil;
-        jsonArray = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error: &e];
+        jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error: &e];
         
     }
     
-    NSDictionary *results = [jsonArray valueForKey:@"feed"];
+    NSArray * objectArray = [jsonDictionary objectForKey:@"items"];
     
-    NSArray * entry = [results valueForKey:@"entry"];
+ 
     
-    for(NSDictionary * vid in entry)
+    for(NSDictionary * vid in objectArray)
     {
         
         Video * v = [[Video alloc]init];
         
-        NSDictionary * token = [vid valueForKey:@"id"];
-        NSString * linktoken = [token valueForKey:@"$t"];
-        NSArray * elementi =  [linktoken componentsSeparatedByString:@"/"];
-        v.videoToken = [elementi objectAtIndex:6];
+       // NSDictionary * token = [vid valueForKey:@"id"];
+       // NSString * linktoken = [token valueForKey:@"$t"];
+       // NSArray * elementi =  [linktoken componentsSeparatedByString:@"/"];
+        v.videoToken = [vid objectForKey:@"id"];
         
-        NSDictionary * titolo = [vid valueForKey:@"title"];
-        NSLog(@"titolo %@",[titolo valueForKey:@"$t"]);
-        v.title = [titolo valueForKey:@"$t"];
+        NSDictionary * snippet = [vid valueForKey:@"snippet"];
         
-        NSDictionary * lin = [vid valueForKey:@"link"];
-        NSArray * linkTot = [lin valueForKey:@"href"];
-        v.link = [linkTot objectAtIndex:0];
-        NSLog(@"link %@",v.link);
         
-        NSDictionary * mediaGroup = [vid valueForKey:@"media$group"];
-        NSDictionary * mediaDescription = [mediaGroup valueForKey:@"media$description"];
-        v.summary = [mediaDescription valueForKey:@"$t"];
-        NSLog(@"description %@",v.summary);
         
-        NSArray * mediaThumbnail = [mediaGroup valueForKey:@"media$thumbnail"];
-        NSDictionary * thumbnail = [mediaThumbnail objectAtIndex:0];
-        v.thumbnail = [thumbnail valueForKey:@"url"];
+        v.title = [snippet valueForKey:@"title"];
+        
+        //NSDictionary * lin = [vid valueForKey:@"link"];
+        //NSArray * linkTot = [lin valueForKey:@"href"];
+        //v.link = [linkTot objectAtIndex:0];
+        //NSLog(@"link %@",v.link);
+        
+       // NSDictionary * mediaGroup = [vid valueForKey:@"media$group"];
+        //NSDictionary * mediaDescription = [mediaGroup valueForKey:@"media$description"];
+        v.summary = [snippet valueForKey:@"description"];
+        //NSLog(@"description %@",v.summary);
+        
+        //NSArray * mediaThumbnail = [mediaGroup valueForKey:@"media$thumbnail"];
+        NSDictionary * thumbnails = [snippet objectForKey:@"thumbnails"];
+        NSDictionary * thumb = [thumbnails valueForKey:@"medium"];
+        v.thumbnail = [thumb objectForKey:@"url"];
         NSLog(@"thumbnail %@",v.thumbnail);
         
-        NSDictionary * like = [vid valueForKey:@"gd$rating"];
-        v.numberOfLike = [like valueForKey:@"numRaters"];
+        
+        NSDictionary * statistics = [vid objectForKey:@"statistics"];
+        
+        
+       
+        v.numberOfLike = [statistics valueForKey:@"likeCount"];
         NSLog(@"raters %@",v.numberOfLike);
         
-        NSDictionary * view = [vid valueForKey:@"yt$statistics"];
-        v.numberOfView = [view valueForKey:@"viewCount"];
+        
+        v.numberOfView = [statistics valueForKey:@"viewCount"];
         NSLog(@"view %@",v.numberOfView);
         
-        NSDictionary * date = [vid valueForKey:@"published"];
-        NSString * dateFormatted = [date valueForKey:@"$t"];
+        NSString * dateFormatted = [snippet valueForKey:@"publishedAt"];
+       
         NSLog(@"data %@",dateFormatted);
         NSArray * elementiData  = [dateFormatted componentsSeparatedByString:@"T"];
         /*
@@ -140,6 +141,30 @@
     [self.loadingView setHidden:YES];
     
     [refreshControl endRefreshing];
+    
+
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [responseData appendData:data ] ;
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self.loadingView setHidden:YES];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Errore!" message:@"Controllare la connessione a internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [alert show];
+}
+
+-(void) loadData
+{
+    
+    
+    NSURLConnection * connection = [[ NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://app.media.inaf.it/GetYoutubeVideoList.php"]] delegate:self];
+    
+    [connection start];
+    
+    
     
     
 
@@ -182,6 +207,8 @@
 - (void)viewDidLoad
 {
     
+    responseData = [[NSMutableData alloc] init];
+    
     [self.collectionView setContentOffset:CGPointMake(0, -refreshControl.frame.size.height) animated:YES];
     [refreshControl beginRefreshing];
     
@@ -195,7 +222,7 @@
     [self.collectionView registerClass:[VideoCell class] forCellWithReuseIdentifier:@"cvCell"];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(300, 345)];
+    [flowLayout setItemSize:CGSizeMake(300, 304)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [flowLayout setMinimumLineSpacing:10.0];
     [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];

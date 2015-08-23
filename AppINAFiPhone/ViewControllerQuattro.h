@@ -11,7 +11,7 @@
 
 
 
-@interface ViewControllerQuattro : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,NSXMLParserDelegate>
+@interface ViewControllerQuattro : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,NSURLConnectionDataDelegate,NSURLConnectionDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *sfondoView;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;

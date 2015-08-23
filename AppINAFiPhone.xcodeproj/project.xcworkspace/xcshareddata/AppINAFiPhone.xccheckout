@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B782FA58-1E1F-40B0-BF0A-EBB764EC3202</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>AppINAFiPhone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</key>
 		<string>https://github.com/mediainaf/AppINAFiPhone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AppINAFiPhone.xcodeproj/project.xcworkspace</string>
+	<string>AppINAFiPhone.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>36E4D1301F7EA230B61EEAD7A240F9A2DC826E2A</key>

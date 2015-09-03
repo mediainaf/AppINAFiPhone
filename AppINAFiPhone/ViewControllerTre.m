@@ -21,8 +21,8 @@
 {
     
     UIRefreshControl * refreshControl;
-    
-    
+    int aproNotifica;
+    NSString * messaggioNotifica;
     NSXMLParser * parser;
     
     int load;
@@ -54,6 +54,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
     currentElement = [elementName copy];
+    NSLog(@" %ld element %@",(long)parser.lineNumber, elementName);
     if ([elementName isEqualToString:@"item"]) {
         
         title = [[NSMutableString alloc] init];
@@ -93,6 +94,8 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    currentElement = [NSMutableString stringWithString:@""];
+    
     if ([elementName isEqualToString:@"item"]) {
         /* salva tutte le proprietà del feed letto nell'elemento "item", per
          poi inserirlo nell'array "elencoFeed" */
@@ -142,7 +145,7 @@
     NSMutableArray * videos = [[NSMutableArray alloc] init];
     videos = [imagesAndVideoArray objectAtIndex:1];
     
-    NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
+    //NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
     
     
     News * n = [[News alloc] init];
@@ -294,7 +297,6 @@
 finish:
     return result;
 }
-
 -(void) loadData
 {
     // http://www.media.inaf.it/category/eventi/feed/
@@ -330,6 +332,33 @@ finish:
     [self.collectionView reloadData];
     [refreshControl endRefreshing];
     [self.loadingView setHidden:YES];
+    
+    NSLog(@"prima di aprire %d -%@-",aproNotifica,messaggioNotifica);
+    if(aproNotifica == 1)
+    {
+        NSLog(@"apro");
+        [self controllaNotifica];
+    }
+}
+-(void) controllaNotifica
+{
+    NSLog(@"test notifica");
+    
+    for(News * n in news)
+    {
+        NSLog(@"-%@-",n.title);
+        // ho trovato l'evento della notifica
+        if([n.title isEqualToString: messaggioNotifica])
+        {
+            NSLog(@"trovat");
+            DetailEventsViewController * detail = [[DetailEventsViewController alloc] initWithNibName:@"DetailEventsViewController" bundle:nil];
+            
+            detail.news = n;
+            
+            [self.navigationController pushViewController:detail animated:YES];
+
+        }
+    }
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
@@ -402,10 +431,32 @@ finish:
         load = 1;
         [self loadData];
     }
+    else
+    {
+        NSLog(@"prima di aprire %d -%@-",aproNotifica,messaggioNotifica);
+        if(aproNotifica == 1)
+        {
+            NSLog(@"apro");
+            [self controllaNotifica];
+        }
+    }
 
+}
+
+- (void) notifica: (NSString * )notification
+{
+    
+    NSLog(@"notifica arrvata %@",notification);
+    
+    aproNotifica = 1;
+    messaggioNotifica = notification;
+    
+   // [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+     
 }
 - (void)viewDidLoad
 {
+   // aproNotifica =0;
     
     
     [self.collectionView setContentOffset:CGPointMake(0, -refreshControl.frame.size.height) animated:YES];

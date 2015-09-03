@@ -573,6 +573,9 @@
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     
+    currentElement = [NSMutableString stringWithString:@""];
+
+    
     if([news count] == 3)
         [parser abortParsing];
     

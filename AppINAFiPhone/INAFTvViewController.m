@@ -1,18 +1,18 @@
 //
-//  TvViewController.m
+//  INAFTvViewController.m
 //  AppINAFiPhone
 //
-//  Created by Nicolo' Parmiggiani on 20/08/15.
+//  Created by Nicolo' Parmiggiani on 03/09/15.
 //  Copyright (c) 2015 Nicolo' Parmiggiani. All rights reserved.
 //
 
-#import "TvViewController.h"
+#import "INAFTvViewController.h"
 
-@interface TvViewController ()
+@interface INAFTvViewController ()
 
 @end
 
-@implementation TvViewController
+@implementation INAFTvViewController
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [self.indicator stopAnimating];
@@ -35,16 +35,12 @@
         [self.indicator stopAnimating];
     }
 }
--(void)viewDidAppear:(BOOL)animated
-{
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://astrochannel.media.inaf.it/"]]];
-}
+
 - (void)viewDidLoad {
-    self.webView.scalesPageToFit=YES;
-
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://astrochannel.media.inaf.it/"]]];
     
 
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

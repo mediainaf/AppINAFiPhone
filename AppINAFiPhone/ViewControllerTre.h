@@ -19,5 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *loadingView;
 
+- (void) notifica: (NSString * )notification;
+
 
 @end

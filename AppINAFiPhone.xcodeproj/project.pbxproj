@@ -16,10 +16,10 @@
 		033A6A1919B1FC890086D22C /* WebCamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033A6A1719B1FC890086D22C /* WebCamViewController.xib */; };
 		033A6A1D19B1FCFF0086D22C /* EarthProhListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033A6A1B19B1FCFF0086D22C /* EarthProhListViewController.m */; };
 		033A6A1E19B1FCFF0086D22C /* EarthProhListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033A6A1C19B1FCFF0086D22C /* EarthProhListViewController.xib */; };
-		0379301C1B86091A001EDDFE /* TvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379301A1B86091A001EDDFE /* TvViewController.m */; };
-		0379301D1B86091A001EDDFE /* TvViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0379301B1B86091A001EDDFE /* TvViewController.xib */; };
-		037930211B860924001EDDFE /* TrasparenzaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0379301F1B860924001EDDFE /* TrasparenzaViewController.m */; };
-		037930221B860924001EDDFE /* TrasparenzaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 037930201B860924001EDDFE /* TrasparenzaViewController.xib */; };
+		0340F1EB1B98A030008A23B4 /* INAFTvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0340F1E91B98A030008A23B4 /* INAFTvViewController.m */; };
+		0340F1EC1B98A030008A23B4 /* INAFTvViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0340F1EA1B98A030008A23B4 /* INAFTvViewController.xib */; };
+		0340F1F01B98A03F008A23B4 /* TraspViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0340F1EE1B98A03F008A23B4 /* TraspViewController.m */; };
+		0340F1F11B98A03F008A23B4 /* TraspViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0340F1EF1B98A03F008A23B4 /* TraspViewController.xib */; };
 		039CF42919AC8F1B00E142C7 /* ParserImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42619AC8F1B00E142C7 /* ParserImages.m */; };
 		039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 039CF42819AC8F1B00E142C7 /* ParserThumbnail.m */; };
 		03C57D3F19AB3DAD00978837 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C57D3E19AB3DAD00978837 /* Foundation.framework */; };
@@ -126,12 +126,12 @@
 		033A6A1A19B1FCFF0086D22C /* EarthProhListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarthProhListViewController.h; sourceTree = "<group>"; };
 		033A6A1B19B1FCFF0086D22C /* EarthProhListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarthProhListViewController.m; sourceTree = "<group>"; };
 		033A6A1C19B1FCFF0086D22C /* EarthProhListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EarthProhListViewController.xib; sourceTree = "<group>"; };
-		037930191B86091A001EDDFE /* TvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TvViewController.h; sourceTree = "<group>"; };
-		0379301A1B86091A001EDDFE /* TvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TvViewController.m; sourceTree = "<group>"; };
-		0379301B1B86091A001EDDFE /* TvViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TvViewController.xib; sourceTree = "<group>"; };
-		0379301E1B860924001EDDFE /* TrasparenzaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrasparenzaViewController.h; sourceTree = "<group>"; };
-		0379301F1B860924001EDDFE /* TrasparenzaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrasparenzaViewController.m; sourceTree = "<group>"; };
-		037930201B860924001EDDFE /* TrasparenzaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrasparenzaViewController.xib; sourceTree = "<group>"; };
+		0340F1E81B98A030008A23B4 /* INAFTvViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INAFTvViewController.h; sourceTree = "<group>"; };
+		0340F1E91B98A030008A23B4 /* INAFTvViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAFTvViewController.m; sourceTree = "<group>"; };
+		0340F1EA1B98A030008A23B4 /* INAFTvViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = INAFTvViewController.xib; sourceTree = "<group>"; };
+		0340F1ED1B98A03F008A23B4 /* TraspViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraspViewController.h; sourceTree = "<group>"; };
+		0340F1EE1B98A03F008A23B4 /* TraspViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraspViewController.m; sourceTree = "<group>"; };
+		0340F1EF1B98A03F008A23B4 /* TraspViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TraspViewController.xib; sourceTree = "<group>"; };
 		039CF42519AC8F1B00E142C7 /* ParserImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserImages.h; sourceTree = "<group>"; };
 		039CF42619AC8F1B00E142C7 /* ParserImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParserImages.m; sourceTree = "<group>"; };
 		039CF42719AC8F1B00E142C7 /* ParserThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParserThumbnail.h; sourceTree = "<group>"; };
@@ -296,9 +296,9 @@
 		037930171B860906001EDDFE /* Trasparenza */ = {
 			isa = PBXGroup;
 			children = (
-				0379301E1B860924001EDDFE /* TrasparenzaViewController.h */,
-				0379301F1B860924001EDDFE /* TrasparenzaViewController.m */,
-				037930201B860924001EDDFE /* TrasparenzaViewController.xib */,
+				0340F1ED1B98A03F008A23B4 /* TraspViewController.h */,
+				0340F1EE1B98A03F008A23B4 /* TraspViewController.m */,
+				0340F1EF1B98A03F008A23B4 /* TraspViewController.xib */,
 			);
 			name = Trasparenza;
 			sourceTree = "<group>";
@@ -306,9 +306,9 @@
 		037930181B86090B001EDDFE /* INAF Tv */ = {
 			isa = PBXGroup;
 			children = (
-				037930191B86091A001EDDFE /* TvViewController.h */,
-				0379301A1B86091A001EDDFE /* TvViewController.m */,
-				0379301B1B86091A001EDDFE /* TvViewController.xib */,
+				0340F1E81B98A030008A23B4 /* INAFTvViewController.h */,
+				0340F1E91B98A030008A23B4 /* INAFTvViewController.m */,
+				0340F1EA1B98A030008A23B4 /* INAFTvViewController.xib */,
 			);
 			name = "INAF Tv";
 			sourceTree = "<group>";
@@ -673,7 +673,6 @@
 				03CBA66E19B0CC7300763EEA /* TweetViewController.xib in Resources */,
 				03C57D5719AB3DAD00978837 /* Images.xcassets in Resources */,
 				03C57DCF19AB3F0D00978837 /* NewsCell.xib in Resources */,
-				037930221B860924001EDDFE /* TrasparenzaViewController.xib in Resources */,
 				03CBA68F19B0D42900763EEA /* MapOrbitViewController.xib in Resources */,
 				03C57DFB19AB3F0D00978837 /* ViewControllerTre.xib in Resources */,
 				03C57DE219AB3F0D00978837 /* ViewControllerAnnotation.xib in Resources */,
@@ -686,15 +685,16 @@
 				03C57E0119AB422100978837 /* Assets in Resources */,
 				03C57DF919AB3F0D00978837 /* DetailNewsViewController.xib in Resources */,
 				03C57DDB19AB3F0D00978837 /* ViewControllerCredits.xib in Resources */,
-				0379301D1B86091A001EDDFE /* TvViewController.xib in Resources */,
 				0337843F19B36B73000ED9BD /* WebcamCell.xib in Resources */,
 				03C57DEA19AB3F0D00978837 /* ViewControllerImagineGrande.xib in Resources */,
 				03CBA68019B0D30200763EEA /* SpaceTableViewCell.xib in Resources */,
 				03C57DE319AB3F0D00978837 /* InternetNewsViewController.xib in Resources */,
 				03C57DD419AB3F0D00978837 /* JobsCell.xib in Resources */,
+				0340F1EC1B98A030008A23B4 /* INAFTvViewController.xib in Resources */,
 				033A6A1919B1FC890086D22C /* WebCamViewController.xib in Resources */,
 				03C57DF219AB3F0D00978837 /* ViewControllerUno.xib in Resources */,
 				03C57DF719AB3F0D00978837 /* ViewControllerMappa.xib in Resources */,
+				0340F1F11B98A03F008A23B4 /* TraspViewController.xib in Resources */,
 				03C57DD319AB3F0D00978837 /* ViewControllerApp.xib in Resources */,
 				03C57DDF19AB3F0D00978837 /* ViewControllerCinque.xib in Resources */,
 				03C57DD619AB3F0D00978837 /* DetailEventsViewController.xib in Resources */,
@@ -727,6 +727,7 @@
 				03C57DE419AB3F0D00978837 /* Istituto.m in Sources */,
 				0337843D19B36B54000ED9BD /* WebcamCell.m in Sources */,
 				03C57DCD19AB3F0D00978837 /* VideoCell.m in Sources */,
+				0340F1EB1B98A030008A23B4 /* INAFTvViewController.m in Sources */,
 				03C57DE719AB3F0D00978837 /* Parser.m in Sources */,
 				03C57DD019AB3F0D00978837 /* AppTableCell.m in Sources */,
 				03C57DDC19AB3F0D00978837 /* HomeTableViewCell.m in Sources */,
@@ -753,8 +754,6 @@
 				03C57DF819AB3F0D00978837 /* DetailNewsViewController.m in Sources */,
 				03C57DF319AB3F0D00978837 /* InternetNewsViewController.m in Sources */,
 				03C57D4B19AB3DAD00978837 /* main.m in Sources */,
-				037930211B860924001EDDFE /* TrasparenzaViewController.m in Sources */,
-				0379301C1B86091A001EDDFE /* TvViewController.m in Sources */,
 				03CBA67B19B0D2B400763EEA /* Satellite.m in Sources */,
 				033A6A1D19B1FCFF0086D22C /* EarthProhListViewController.m in Sources */,
 				03CBA66D19B0CC7300763EEA /* TweetViewController.m in Sources */,
@@ -765,6 +764,7 @@
 				039CF42A19AC8F1B00E142C7 /* ParserThumbnail.m in Sources */,
 				03C57DE019AB3F0D00978837 /* News.m in Sources */,
 				03CBA68E19B0D42900763EEA /* MapOrbitViewController.m in Sources */,
+				0340F1F01B98A03F008A23B4 /* TraspViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

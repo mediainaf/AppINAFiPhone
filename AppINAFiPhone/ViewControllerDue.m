@@ -102,6 +102,9 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    
+    currentElement = [NSMutableString stringWithString:@""];
+    
     if ([elementName isEqualToString:@"item"]) {
         /* salva tutte le proprietà del feed letto nell'elemento "item", per
          poi inserirlo nell'array "elencoFeed" */

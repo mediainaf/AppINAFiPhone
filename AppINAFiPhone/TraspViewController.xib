@@ -5,51 +5,53 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrasparenzaViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TraspViewController">
             <connections>
-                <outlet property="indicator" destination="ero-KH-yX8" id="SCx-0p-8jA"/>
-                <outlet property="view" destination="S2q-4Z-j6a" id="NoP-iO-pOV"/>
-                <outlet property="webView" destination="Q1N-u3-kSr" id="Yvk-b2-ggd"/>
+                <outlet property="indicator" destination="FyC-tr-ql5" id="AZJ-oz-Lk7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="WId-BY-K93" id="TQR-D3-oSj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="S2q-4Z-j6a">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" id="Q1N-u3-kSr">
+                <webView contentMode="scaleToFill" id="WId-BY-K93">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="z2w-mL-i8d"/>
+                    </connections>
                 </webView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="VAi-TP-flb">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="FyC-tr-ql5">
+                    <rect key="frame" x="150" y="162" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NOf-5u-iiA">
                     <rect key="frame" x="0.0" y="343" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem width="214" style="plain" systemItem="fixedSpace" id="XCh-Ym-Kvw"/>
-                        <barButtonItem systemItem="rewind" id="pqm-CQ-GGE">
+                        <barButtonItem systemItem="rewind" id="NfS-qV-Yv3">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="goBack" destination="Q1N-u3-kSr" id="8Bj-qF-9eB"/>
+                                <action selector="goBack" destination="WId-BY-K93" id="5Qk-HM-x9K"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="fastForward" id="ixR-rS-vl9">
+                        <barButtonItem systemItem="fastForward" id="SFb-GT-Pba">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="goForward" destination="Q1N-u3-kSr" id="aFd-aK-SnK"/>
+                                <action selector="goForward" destination="WId-BY-K93" id="2yX-O1-tip"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="ero-KH-yX8">
-                    <rect key="frame" x="150" y="162" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="259" y="323.5"/>
+            <point key="canvasLocation" x="280" y="245"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

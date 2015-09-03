@@ -5,51 +5,53 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TvViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="INAFTvViewController">
             <connections>
-                <outlet property="indicator" destination="Mdr-0k-j2i" id="0OZ-ln-IfJ"/>
-                <outlet property="view" destination="hw7-sY-BFj" id="Bpp-5w-6jP"/>
-                <outlet property="webView" destination="4Yu-uf-xeV" id="98K-X9-Nm9"/>
+                <outlet property="indicator" destination="AT1-JM-a0F" id="MCB-Fs-1jA"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="gG8-gw-SDD" id="1Nv-jz-Ayj"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="hw7-sY-BFj">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" id="4Yu-uf-xeV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </webView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="79d-xY-DJb">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="9x0-9X-PiQ">
                     <rect key="frame" x="0.0" y="343" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <items>
-                        <barButtonItem width="214" style="plain" systemItem="fixedSpace" id="woA-XF-b2V"/>
-                        <barButtonItem systemItem="rewind" id="8yp-hF-oFq">
+                        <barButtonItem systemItem="rewind" id="rHD-Wg-qTa">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="goBack" destination="4Yu-uf-xeV" id="5bw-OP-9CI"/>
+                                <action selector="goBack" destination="gG8-gw-SDD" id="iDu-Ha-KqF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem systemItem="fastForward" id="eFO-fO-Y0i">
+                        <barButtonItem systemItem="fastForward" id="oXh-Mg-Al6">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="goForward" destination="4Yu-uf-xeV" id="juH-JS-PlV"/>
+                                <action selector="goForward" destination="gG8-gw-SDD" id="zlG-hS-WHF"/>
                             </connections>
                         </barButtonItem>
                     </items>
                 </toolbar>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="Mdr-0k-j2i">
+                <webView contentMode="scaleToFill" id="gG8-gw-SDD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="343"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Rr3-kU-ArZ"/>
+                    </connections>
+                </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="AT1-JM-a0F">
                     <rect key="frame" x="150" y="162" width="20" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="391" y="386.5"/>
+            <point key="canvasLocation" x="94" y="195.5"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

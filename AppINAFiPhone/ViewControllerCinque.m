@@ -14,8 +14,8 @@
 #import "TweetViewController.h"
 #import "SpaceProjViewController.h"
 #import "EarthProhListViewController.h"
-#import "TvViewController.h"
-#import "TrasparenzaViewController.h"
+#import "INAFTvViewController.h"
+#import "TraspViewController.h"
 
 @interface ViewControllerCinque ()
 {
@@ -135,16 +135,20 @@
             break;
         case 6:
         {
-            TvViewController * tv = [[TvViewController alloc] initWithNibName:@"TvViewController" bundle:nil];
+            TraspViewController * trasparenza = [[TraspViewController alloc] initWithNibName:@"TraspViewController" bundle:nil];
             
-            [self.navigationController pushViewController:tv animated:YES];
+            [self.navigationController pushViewController:trasparenza animated:YES];
+
         }
             break;
         case 7:
         {
-            TrasparenzaViewController * trasparenza = [[TrasparenzaViewController alloc] initWithNibName:@"TrasparenzaViewController" bundle:nil];
             
-            [self.navigationController pushViewController:trasparenza animated:YES];
+            INAFTvViewController * tv = [[INAFTvViewController alloc]
+                                     initWithNibName:@"INAFTvViewController" bundle:nil];
+            
+            [self.navigationController pushViewController:tv animated:YES];
+            
         }
             break;
 

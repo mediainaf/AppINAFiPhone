@@ -34,7 +34,7 @@
     
     NSMutableArray * contentArray;
     
-    NSMutableString * title, *author, * date, *summary ,*content, *link, *currentElement;
+    NSMutableString * title, *author, * date, *summary ,*content, *link, *currentElement, *itemid;
 }
 
 - (void)parseXMLFileAtURL:(NSString *)URL;
@@ -63,6 +63,7 @@
         summary = [[NSMutableString alloc] init];
         content = [[NSMutableString alloc] init];
         link = [[NSMutableString alloc] init];
+        itemid = [[NSMutableString alloc] init];
         
         // inizializza tutti gli elementi
     }
@@ -87,6 +88,8 @@
         [content appendString:string];
     } else if ([currentElement isEqualToString:@"dc:creator"]) {
         [author appendString:string];
+    } else if ([currentElement isEqualToString:@"guid"]) {
+        [itemid appendString:string];
     }
     
     
@@ -145,12 +148,21 @@
     NSMutableArray * videos = [[NSMutableArray alloc] init];
     videos = [imagesAndVideoArray objectAtIndex:1];
     
+    
+    // faccio parsing per ottentere itemid
+    
+    NSArray * component = [itemid componentsSeparatedByString:@"?p="];
+    
     //NSLog(@"url %d %d titolo %@", [imagesArray count],[videos count],title );
     
     
     News * n = [[News alloc] init];
     // manca autore data link
     n.title = title;
+    n.itemid = [component objectAtIndex:1];
+    
+    NSLog(@"%@",[component objectAtIndex:1]);
+    
     n.images = imagesArray;
     //n.thumbnail = linkThumbnail;
     n.videos = videos;
@@ -342,13 +354,14 @@ finish:
 }
 -(void) controllaNotifica
 {
+    aproNotifica = 0;
     NSLog(@"test notifica");
     
     for(News * n in news)
     {
         NSLog(@"-%@-",n.title);
         // ho trovato l'evento della notifica
-        if([n.title isEqualToString: messaggioNotifica])
+        if([n.itemid isEqualToString: messaggioNotifica])
         {
             NSLog(@"trovat");
             DetailEventsViewController * detail = [[DetailEventsViewController alloc] initWithNibName:@"DetailEventsViewController" bundle:nil];

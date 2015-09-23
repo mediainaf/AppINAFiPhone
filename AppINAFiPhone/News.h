@@ -17,7 +17,7 @@
 @property (nonatomic,strong) NSString * author ;
 @property (nonatomic,strong) NSString * date ;
 @property (nonatomic,strong) NSString * link ;
-
+@property (nonatomic,strong) NSString * itemid;
 @property (nonatomic,strong) NSString * thumbnail ;
 @property (nonatomic,strong) NSMutableArray * images;
 @property (nonatomic,strong) NSMutableArray * videos;

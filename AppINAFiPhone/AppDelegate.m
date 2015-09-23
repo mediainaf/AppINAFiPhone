@@ -317,8 +317,9 @@ static NSString * token ;
      NSString * message = [apsInfo objectForKey:@"alert"];
        NSLog(@"Received Push Alert: %@", message);
     
+    NSString * idString = [userInfo objectForKey:@"id"];
     
-    messaggioNotifica = message;
+    messaggioNotifica = idString;
     
     NSString *sound = [apsInfo objectForKey:@"sound"];
     NSLog(@"Received Push Sound: %@", sound);
